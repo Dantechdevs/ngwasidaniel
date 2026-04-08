@@ -1,9 +1,11 @@
+import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 
 const categoryColors: Record<string, string> = {
   Backend: 'text-blue border-blue/30 bg-blue/10',
   Frontend: 'text-cyan border-cyan/30 bg-cyan/10',
   Development: 'text-purple border-purple/30 bg-purple/10',
+  Tools: 'text-amber-400 border-amber-400/30 bg-amber-400/10',
 }
 
 export default function Blog() {
@@ -12,9 +14,7 @@ export default function Blog() {
       <div className="max-w-6xl mx-auto px-6">
         <p className="font-mono text-cyan text-xs uppercase tracking-widest mb-3">Writing</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-4 section-heading">From My Blog</h2>
-        <p className="text-muted mb-14">
-          Thoughts on design, development, and technology.
-        </p>
+        <p className="text-muted mb-14">Thoughts on design, development, and technology.</p>
 
         <div className="grid md:grid-cols-3 gap-6">
           {siteData.blog.map((post, i) => (
@@ -23,22 +23,24 @@ export default function Blog() {
               href={post.slug}
               className="bg-bg border border-border rounded-xl overflow-hidden card-hover block group"
             >
-              {/* Banner */}
-              <div
-                className="h-36 flex items-end p-4 relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(135deg, #0a0a0f, ${
-                    ['#0d2044', '#0a1a18', '#1a0a28'][i % 3]
-                  })`,
-                }}
-              >
-                <span
-                  className={`text-xs px-2.5 py-1 rounded-full border font-mono ${
-                    categoryColors[post.category] || 'text-muted border-border bg-bg3'
-                  }`}
-                >
-                  {post.category}
-                </span>
+              {/* Real image banner */}
+              <div className="h-44 relative overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span
+                    className={`text-xs px-2.5 py-1 rounded-full border font-mono ${
+                      categoryColors[post.category] || 'text-muted border-border bg-bg3'
+                    }`}
+                  >
+                    {post.category}
+                  </span>
+                </div>
               </div>
 
               <div className="p-5">

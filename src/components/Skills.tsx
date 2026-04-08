@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { siteData } from '@/data/siteData'
 
-const categories = ['All', 'Frontend', 'Backend', 'Mobile', 'Tools']
+const categories = ['All', 'Frontend', 'Backend', 'Mobile', 'Tools', 'ICT']
 
 export default function Skills() {
   const [active, setActive] = useState('All')

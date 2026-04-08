@@ -1,18 +1,20 @@
+import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 
 export default function About() {
   return (
     <section id="about" className="py-24 max-w-6xl mx-auto px-6">
       <div className="grid md:grid-cols-2 gap-16 items-center">
-        {/* Image placeholder */}
-        <div className="bg-bg2 border border-border rounded-2xl aspect-[4/5] flex items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-blue/5" />
-          <div className="text-center z-10">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan to-blue flex items-center justify-center text-bg text-4xl font-bold mx-auto mb-4">
-              DN
-            </div>
-            <p className="text-muted text-sm">Add your photo here</p>
-          </div>
+        {/* Profile photo */}
+        <div className="bg-bg2 border border-border rounded-2xl overflow-hidden aspect-[4/5] relative">
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent z-10" />
+          <Image
+            src={siteData.images.profile}
+            alt="Daniel Ngwasi"
+            fill
+            className="object-cover object-top"
+            priority
+          />
         </div>
 
         {/* Content */}
@@ -21,9 +23,25 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6 section-heading">My Journey</h2>
           <p className="text-muted leading-relaxed mb-5">{siteData.bio}</p>
           <p className="text-muted leading-relaxed mb-8">
-            When I&apos;m not coding, you can find me exploring new technologies, contributing to
-            open-source projects, and mentoring aspiring developers.
+            When I&apos;m not coding or managing ICT infrastructure, you can find me exploring new
+            technologies, contributing to open-source projects, and mentoring aspiring developers.
           </p>
+
+          {/* Quick facts */}
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            {[
+              { label: 'University', value: "St. Paul's University" },
+              { label: 'Graduated', value: '2022' },
+              { label: 'Current Role', value: 'ICT Officer' },
+              { label: 'Location', value: 'Nairobi, Kenya' },
+            ].map((fact) => (
+              <div key={fact.label} className="bg-bg2 border border-border rounded-lg p-3">
+                <div className="text-xs text-muted mb-1">{fact.label}</div>
+                <div className="text-sm font-semibold text-white">{fact.value}</div>
+              </div>
+            ))}
+          </div>
+
           <a
             href="/cv.pdf"
             download

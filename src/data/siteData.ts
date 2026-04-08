@@ -1,18 +1,52 @@
 export const siteData = {
   name: "Daniel Ngwasi",
-  role: "Computer Science Graduate | Software Developer",
+  role: "ICT Officer | Software Developer | CS Graduate",
   tagline: "Building practical systems that solve real-world problems.",
-  bio: "I'm a skilled computer programmer with a strong background in computer science. I specialize in writing, testing, debugging, and maintaining efficient and scalable software solutions. I am passionate about building practical systems that solve real-world problems, with experience in developing web applications and working with modern technologies.",
-  email: "danielngwasi@gmail.com",
+  bio: "I'm a skilled computer programmer and ICT professional with a strong background in computer science. I specialize in writing, testing, debugging, and maintaining efficient and scalable software solutions. I am passionate about building practical systems that solve real-world problems, with experience in developing web applications, managing ICT infrastructure, and working with modern technologies.",
+
+  // ─── CONTACT ───────────────────────────────────────────────────────────────
+  email: "damnngwasi@gmail.com",
+  whatsapp: "+254712328150",
   location: "Nairobi, Kenya",
-  github: "https://github.com/danielngwasi",
+
+  // ─── SOCIAL LINKS ──────────────────────────────────────────────────────────
+  github: "https://github.com/Dantechdevs",
   linkedin: "https://linkedin.com/in/danielngwasi",
-  twitter: "https://twitter.com/danielngwasi",
+  twitter: "https://x.com/Ngwasidaniel",
+  facebook: "https://www.facebook.com/share/18SUkkGvGh/",
+
+  // ─── HERO STATS ────────────────────────────────────────────────────────────
   stats: [
-    { number: "2+", label: "Years Experience" },
-    { number: "15+", label: "Projects Built" },
+    { number: "5+", label: "Years Experience" },
+    { number: "100+", label: "Projects Built" },
     { number: "10+", label: "Happy Clients" },
   ],
+
+  // ─── WHERE TO PUT YOUR IMAGES ──────────────────────────────────────────────
+  // 1. Put all images inside:  daniel-portfolio/public/images/
+  // 2. They are already copied there for you (see list below)
+  // 3. Reference them anywhere as:  /images/filename.png
+  //
+  //  YOUR IMAGES:
+  //   public/images/daniel-profile.png      ← standing photo (blue shirt)       → used in About section
+  //   public/images/daniel-working.png      ← working at laptop                 → used in Hero / About
+  //   public/images/blog-coding.png         ← laptop + VS Code photo            → used in Blog post 1
+  //   public/images/blog-python.png         ← Python / Django code screenshot   → used in Blog post 2
+  //   public/images/blog-git.png            ← How Git Works diagram             → used in Blog post 3
+  //   public/images/project-reposage.png    ← RepoSage screenshot               → used in Projects
+  //
+  //  TO ADD MORE IMAGES later:
+  //   Just drop the file into  public/images/  and add it here.
+  images: {
+    profile: "/images/daniel-profile.png",
+    working: "/images/daniel-working.png",
+    blogCoding: "/images/blog-coding.png",
+    blogPython: "/images/blog-python.png",
+    blogGit: "/images/blog-git.png",
+    projectReposage: "/images/project-reposage.png",
+  },
+
+  // ─── SKILLS ────────────────────────────────────────────────────────────────
   skills: [
     { name: "React", category: "Frontend", icon: "⚛" },
     { name: "JavaScript", category: "Frontend", icon: "JS" },
@@ -36,39 +70,62 @@ export const siteData = {
     { name: "Figma", category: "Tools", icon: "✏" },
     { name: "Linux", category: "Tools", icon: "🐧" },
     { name: "CI/CD", category: "Tools", icon: "♾" },
+    { name: "Network Admin", category: "ICT", icon: "🌐" },
+    { name: "ICT Support", category: "ICT", icon: "🖥" },
+    { name: "Cybersecurity", category: "ICT", icon: "🔒" },
+    { name: "Microsoft 365", category: "ICT", icon: "Ⓜ" },
+    { name: "Server Mgmt", category: "ICT", icon: "🗄" },
+    { name: "Data Analysis", category: "ICT", icon: "📊" },
   ],
+
+  // ─── CAREER ────────────────────────────────────────────────────────────────
   career: [
     {
       period: "2024 – Present",
-      title: "Software Developer",
+      title: "ICT Officer",
+      company: "Ministry of Education, Kenya",
       type: "work",
       description:
-        "Building production-grade web applications and scalable backend systems. Collaborating with cross-functional teams to ship high-quality software solutions.",
+        "Providing ICT support and infrastructure management for the Ministry of Education. Responsible for maintaining computer systems, networks, and digital services. Supporting staff with ICT needs, managing government databases, and implementing digital transformation initiatives across education departments.",
     },
     {
       period: "2023 – 2024",
       title: "Freelance Web Developer",
+      company: "Self-Employed",
       type: "work",
       description:
-        "Delivered responsive, user-friendly websites for clients across various industries. Focused on modern frameworks like React and delivering exceptional digital experiences.",
+        "Delivered responsive, user-friendly websites and web applications for clients across various industries. Focused on modern frameworks like React and Next.js, delivering exceptional digital experiences and scalable backend systems.",
     },
     {
-      period: "2020 – 2024",
+      period: "2022 – 2023",
+      title: "ICT Attaché / Intern",
+      company: "Government ICT Department",
+      type: "work",
+      description:
+        "Gained hands-on experience in ICT infrastructure management, network configuration, hardware maintenance, and end-user support. Assisted in the rollout of digital systems and maintained IT documentation.",
+    },
+    {
+      period: "2019 – 2022",
       title: "BSc Computer Science",
+      company: "St. Paul's University, Limuru",
       type: "education",
       description:
-        "Built a strong foundation in algorithms, data structures, software engineering, and computer networks. Graduated with strong practical project experience.",
+        "Graduated with a Bachelor of Science in Computer Science from St. Paul's University Main Campus, Limuru. Built a strong foundation in algorithms, data structures, software engineering, computer networks, and systems design.",
     },
   ],
+
+  // ─── EDUCATION ─────────────────────────────────────────────────────────────
   education: [
     {
       degree: "Bachelor of Science in Computer Science",
-      institution: "Your University",
-      period: "2020 – 2024",
+      institution: "St. Paul's University — Main Campus, Limuru",
+      period: "2019 – 2022",
       description:
-        "Strong foundation in algorithms, data structures, software engineering, and computer networks.",
+        "Strong foundation in algorithms, data structures, software engineering, computer networks, and systems design. Developed practical skills through hands-on projects and coursework.",
     },
   ],
+
+  // ─── CERTIFICATIONS ────────────────────────────────────────────────────────
   certifications: [
     {
       title: "AWS Cloud Practitioner",
@@ -85,15 +142,42 @@ export const siteData = {
       issuer: "University of Michigan",
       year: "2023",
     },
+    {
+      title: "Cisco IT Essentials",
+      issuer: "Cisco Networking Academy",
+      year: "2022",
+    },
   ],
+
+  // ─── PROJECTS ──────────────────────────────────────────────────────────────
   projects: [
+    {
+      title: "RepoSage",
+      description:
+        "Drop in any GitHub URL and instantly get the purpose, architecture, key files, dependencies, and a contribution guide — all in a clean terminal-style UI. Built for developers, by developers. Zero config.",
+      tags: ["TypeScript", "React", "Node.js", "GitHub API", "Open Source"],
+      demo: "https://dantechdevs.github.io/reposage/",
+      source: "https://github.com/Dantechdevs/reposage",
+      featured: true,
+      image: "/images/project-reposage.png",
+      badge: "Open Source · v0.1.0-alpha",
+    },
+    {
+      title: "Ministry of Education ICT Portal",
+      description:
+        "An internal web portal for managing ICT assets, support tickets, and staff ICT requests across the Ministry of Education. Includes real-time dashboards and reporting.",
+      tags: ["React", "Node.js", "PostgreSQL", "Docker"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs",
+      featured: true,
+    },
     {
       title: "Full-Stack E-Commerce Platform",
       description:
         "A complete e-commerce solution with cart, payments, authentication, and an admin dashboard. Built for performance and scalability.",
       tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
       demo: "#",
-      source: "#",
+      source: "https://github.com/Dantechdevs",
       featured: true,
     },
     {
@@ -102,7 +186,7 @@ export const siteData = {
         "A WebSocket-powered chat app with rooms, direct messages, and notifications. Supports thousands of concurrent users.",
       tags: ["Next.js", "TypeScript", "Socket.io", "MongoDB"],
       demo: "#",
-      source: "#",
+      source: "https://github.com/Dantechdevs",
       featured: true,
     },
     {
@@ -111,8 +195,8 @@ export const siteData = {
         "A RESTful API for project and task management with team collaboration, role-based access, and detailed analytics.",
       tags: ["Python", "Django", "PostgreSQL", "Docker"],
       demo: "#",
-      source: "#",
-      featured: true,
+      source: "https://github.com/Dantechdevs",
+      featured: false,
     },
     {
       title: "Mobile Budget Tracker",
@@ -120,10 +204,12 @@ export const siteData = {
         "Cross-platform mobile app for personal finance tracking with charts, categories, and monthly reports.",
       tags: ["React Native", "Firebase", "Expo"],
       demo: "#",
-      source: "#",
+      source: "https://github.com/Dantechdevs",
       featured: false,
     },
   ],
+
+  // ─── BLOG ──────────────────────────────────────────────────────────────────
   blog: [
     {
       title: "Building Scalable APIs with Node.js and PostgreSQL",
@@ -132,24 +218,29 @@ export const siteData = {
       excerpt:
         "A deep dive into designing RESTful APIs that scale — covering database indexing, connection pooling, and caching strategies.",
       slug: "#",
+      image: "/images/blog-coding.png",
     },
     {
-      title: "Why I Switched from Create React App to Next.js",
-      category: "Frontend",
+      title: "Django + Azure Cosmos DB: A Practical Guide",
+      category: "Backend",
       date: "February 2026",
       excerpt:
-        "How Next.js transformed my development workflow with SSR, file-based routing, and built-in optimizations.",
+        "How to connect a Django application to Azure Cosmos DB — covering the django-cosmos driver, proxy configuration, and database creation.",
       slug: "#",
+      image: "/images/blog-python.png",
     },
     {
-      title: "The Power of TypeScript in Large Codebases",
-      category: "Development",
+      title: "How Git Works: A Visual Guide for Developers",
+      category: "Tools",
       date: "January 2026",
       excerpt:
-        "TypeScript isn't just about types — it's about confidence, refactoring safety, and team collaboration at scale.",
+        "A clear visual breakdown of Git workflows — workspace, staging, local repository, and remote repository using GitHub, GitLab, and Bitbucket.",
       slug: "#",
+      image: "/images/blog-git.png",
     },
   ],
+
+  // ─── TESTIMONIALS ──────────────────────────────────────────────────────────
   testimonials: [
     {
       text: "Daniel delivered exactly what we needed — clean code, great communication, and on time. His technical depth and attention to detail made all the difference.",
@@ -170,4 +261,47 @@ export const siteData = {
       initials: "AH",
     },
   ],
+
+  // ─── CHATBOT AUTO-REPLIES ──────────────────────────────────────────────────
+  // Used by the WhatsApp chatbot widget
+  chatbot: {
+    enabled: true,
+    whatsappNumber: "+254712328150",
+    greeting: "Hi! I'm Daniel's assistant 👋 How can I help you today?",
+    autoReplies: [
+      {
+        triggers: ["hire", "available", "work", "freelance", "project", "collaborate"],
+        reply:
+          "Daniel is open to freelance projects and collaborations! 🚀 Send him an email at damnngwasi@gmail.com or WhatsApp him directly.",
+      },
+      {
+        triggers: ["price", "cost", "charge", "rate", "quote", "how much"],
+        reply:
+          "Project pricing depends on scope and complexity. Reach out via the contact form or WhatsApp for a free quote! 💬",
+      },
+      {
+        triggers: ["cv", "resume", "download"],
+        reply: "You can download Daniel's CV from the About section of this portfolio. 📄",
+      },
+      {
+        triggers: ["hello", "hi", "hey", "hii", "helo", "good morning", "good afternoon"],
+        reply: "Hello! 👋 Welcome to Daniel Ngwasi's portfolio. Feel free to explore or ask me anything!",
+      },
+      {
+        triggers: ["skill", "skills", "technology", "stack", "know", "languages"],
+        reply:
+          "Daniel works with React, Next.js, TypeScript, Node.js, Python, Django, PostgreSQL, MongoDB, and much more! Check the Skills section for the full list. 💻",
+      },
+      {
+        triggers: ["education", "university", "degree", "study", "school"],
+        reply:
+          "Daniel graduated with a BSc in Computer Science from St. Paul's University, Limuru (2019–2022). 🎓",
+      },
+      {
+        triggers: ["contact", "email", "reach", "touch", "message"],
+        reply:
+          "You can reach Daniel at damnngwasi@gmail.com, or use the contact form on this page. WhatsApp: +254712328150 📩",
+      },
+    ],
+  },
 }
