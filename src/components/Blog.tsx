@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import { siteData } from '@/data/siteData'
@@ -40,7 +40,7 @@ export default function Blog() {
                 <Image src={post.image} alt={post.title} fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, var(--bg)/80, transparent)' }} />
+                  style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8), transparent)' }} />
                 <div className="absolute bottom-3 left-3">
                   <span className="text-xs px-2.5 py-1 rounded-full border font-mono"
                     style={{

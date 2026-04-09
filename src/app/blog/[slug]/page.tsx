@@ -1,4 +1,3 @@
-"use client";
 import { siteData } from '@/data/siteData'
 import Image from 'next/image'
 import Link from 'next/link'

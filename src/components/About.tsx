@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
@@ -20,7 +20,7 @@ export default function About() {
               priority
             />
             <div className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, var(--bg) 0%, transparent 40%)' }} />
+              style={{ background: 'linear-gradient(to top, #0a0a0f 0%, transparent 40%)' }} />
           </div>
           {/* Floating stats card */}
           <div className="absolute -bottom-4 -right-4 rounded-xl px-4 py-3 text-center shadow-xl"

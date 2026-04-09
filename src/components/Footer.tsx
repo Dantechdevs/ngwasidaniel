@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
 

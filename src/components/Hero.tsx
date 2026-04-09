@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'

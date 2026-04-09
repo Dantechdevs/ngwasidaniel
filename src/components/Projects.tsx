@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 
@@ -49,7 +50,7 @@ export default function Projects() {
                     className="object-cover object-top"
                   />
                   {/* Subtle overlay so text is readable */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg2/60 to-transparent" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(17,17,24,0.6), transparent)' }} />
                   {/* Badge (e.g. "Open Source · v0.1.0-alpha") */}
                   {project.badge && (
                     <div className="absolute top-3 left-3">
