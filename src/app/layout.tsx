@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Sora, Space_Mono } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -18,14 +19,23 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: 'Daniel Ngwasi | Software Developer',
   description:
-    'Computer Science Graduate and Software Developer specializing in scalable web applications and practical software solutions.',
-  keywords: ['software developer', 'web developer', 'React', 'Next.js', 'Kenya', 'Nairobi'],
+    'ICT Officer and Software Developer specializing in scalable web applications and practical software solutions. Based in Nairobi, Kenya.',
+  keywords: ['software developer', 'ICT officer', 'web developer', 'React', 'Next.js', 'Kenya', 'Nairobi'],
+  openGraph: {
+    title: 'Daniel Ngwasi | Software Developer',
+    description: 'Building practical systems that solve real-world problems.',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${spaceMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${sora.variable} ${spaceMono.variable}`} data-theme="dark">
+      <body>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

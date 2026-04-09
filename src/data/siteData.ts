@@ -14,6 +14,9 @@ export const siteData = {
   linkedin: "https://linkedin.com/in/danielngwasi",
   twitter: "https://x.com/Ngwasidaniel",
   facebook: "https://www.facebook.com/share/18SUkkGvGh/",
+  tiktok: "https://www.tiktok.com/@danielngwasi",
+  youtube: "https://www.youtube.com/@danielngwasi",
+  instagram: "https://www.instagram.com/danielngwasi",
 
   // ─── HERO STATS ────────────────────────────────────────────────────────────
   stats: [

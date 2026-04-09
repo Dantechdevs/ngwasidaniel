@@ -8,14 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#0a0a0f',
-        bg2: '#111118',
-        bg3: '#1a1a24',
-        border: '#2a2a3a',
-        cyan: '#00d4b8',
-        blue: '#4488ff',
-        purple: '#9966ff',
-        muted: '#8888aa',
+        bg:     'var(--bg)',
+        bg2:    'var(--bg2)',
+        bg3:    'var(--bg3)',
+        border: 'var(--border)',
+        text:   'var(--text)',
+        muted:  'var(--muted)',
+        cyan:   'var(--cyan)',
+        blue:   'var(--blue)',
+        purple: 'var(--purple)',
       },
       fontFamily: {
         sans: ['var(--font-sora)', 'sans-serif'],
