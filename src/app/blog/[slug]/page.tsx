@@ -1,10 +1,10 @@
-'use client'
 import { siteData } from '@/data/siteData'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = siteData.blog.find(p => p.slug === params.slug)
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = siteData.blog.find(p => p.slug === slug)
 
   if (!post) {
     return (
@@ -25,14 +25,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <main className="min-h-screen pb-20" style={{ background: 'var(--bg)' }}>
-      {/* Hero image */}
       <div className="relative h-72 md:h-96 w-full">
         <Image src={post.image} alt={post.title} fill className="object-cover" priority />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg) 0%, rgba(13,13,20,0.5) 100%)' }} />
       </div>
 
       <div className="max-w-2xl mx-auto px-4 md:px-6 -mt-8 relative z-10">
-        {/* Back link */}
         <Link href="/blog"
           className="inline-flex items-center gap-1 text-xs mb-8 transition-colors"
           style={{ color: 'var(--muted)' }}
@@ -41,7 +39,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           ← Back to all posts
         </Link>
 
-        {/* Meta */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <span className="font-mono text-xs px-3 py-1 rounded-full"
             style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--cyan)' }}>
@@ -59,7 +56,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           {post.excerpt}
         </p>
 
-        {/* Full content placeholder */}
         <div className="space-y-6 mb-16" style={{ color: 'var(--muted)' }}>
           <div className="rounded-xl p-5" style={{ background: 'var(--bg2)', border: '1px solid var(--border)' }}>
             <p className="font-mono text-xs uppercase tracking-widest mb-2" style={{ color: 'var(--cyan)' }}>
@@ -75,7 +71,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Author card */}
         <div className="p-6 rounded-xl flex items-center gap-4"
           style={{ background: 'var(--bg2)', border: '1px solid var(--border)' }}>
           <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 relative"
@@ -93,11 +88,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </Link>
         </div>
 
-        {/* More posts */}
         <div className="mt-12">
           <h3 className="font-mono text-sm uppercase tracking-widest mb-6" style={{ color: 'var(--muted)' }}>More Posts</h3>
           <div className="grid sm:grid-cols-2 gap-4">
-            {siteData.blog.filter(p => p.slug !== params.slug).slice(0, 2).map((p, i) => (
+            {siteData.blog.filter(p => p.slug !== slug).slice(0, 2).map((p, i) => (
               <Link key={i} href={p.slug === '#' ? '/blog' : `/blog/${p.slug}`}
                 className="rounded-xl overflow-hidden card-hover"
                 style={{ background: 'var(--bg2)', border: '1px solid var(--border)' }}>
