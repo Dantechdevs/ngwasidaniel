@@ -14,8 +14,8 @@ export const siteData = {
   linkedin: "https://linkedin.com/in/danielngwasi",
   twitter: "https://x.com/Ngwasidaniel",
   facebook: "https://www.facebook.com/share/18SUkkGvGh/",
-  tiktok: "https://www.tiktok.com/@dantechdevs",
-  youtube: "https://www.youtube.com/@dantechdevs",
+  tiktok: "https://www.tiktok.com/@dantechdevelopers",
+  youtube: "https://www.youtube.com/@dantechdev",
   instagram: "https://www.instagram.com/danielngwasi",
 
   // ─── HERO STATS ────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ export const siteData = {
   //   Just drop the file into  public/images/  and add it here.
   images: {
     profile: "/images/daniel.jpg",
-    working: "/images/daniel-working.png",
+    working: "/images/daniel.jpg",
     blogCoding: "/images/blog-coding.png",
     blogPython: "/images/blog-python.png",
     blogGit: "/images/blog-git.png",
