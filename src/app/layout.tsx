@@ -17,14 +17,17 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Daniel Ngwasi | Software Developer',
+  title: 'Daniel Ngwasi | ICT Officer & Software Developer',
   description:
-    'ICT Officer and Software Developer specializing in scalable web applications and practical software solutions. Based in Nairobi, Kenya.',
-  keywords: ['software developer', 'ICT officer', 'web developer', 'React', 'Next.js', 'Kenya', 'Nairobi'],
+    'ICT Officer and Software Developer specializing in scalable web applications, Laravel systems, and ICT infrastructure. Based in Nairobi, Kenya. Built by Dantechdevelopers.com',
+  keywords: ['software developer', 'ICT officer', 'web developer', 'React', 'Next.js', 'Laravel', 'PHP', 'Kenya', 'Nairobi', 'Dantechdevelopers'],
+  authors: [{ name: 'Daniel Ngwasi', url: 'https://dantechdevelopers.com' }],
+  creator: 'Dantechdevelopers.com',
   openGraph: {
-    title: 'Daniel Ngwasi | Software Developer',
-    description: 'Building practical systems that solve real-world problems.',
+    title: 'Daniel Ngwasi | ICT Officer & Software Developer',
+    description: 'Building practical systems that solve real-world problems. Nairobi, Kenya.',
     type: 'website',
+    url: 'https://dantechdevelopers.com',
   },
 }
 

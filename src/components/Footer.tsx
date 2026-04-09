@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
 
@@ -6,10 +6,10 @@ export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}>
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
 
           {/* Brand */}
-          <div>
+          <div className="md:col-span-2">
             <div className="font-mono text-base font-bold mb-2" style={{ color: 'var(--cyan)' }}>
               daniel<span style={{ color: 'var(--text)' }}>.ngwasi</span>
             </div>
@@ -22,20 +22,21 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--text)' }}>
-              Quick Links
-            </h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--text)' }}>Quick Links</h4>
             <ul className="space-y-2">
-              {['About', 'Career', 'Skills', 'Projects', 'Blog', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase()}`}
-                    className="text-xs transition-colors hover:underline"
+              {[
+                { label: 'About', href: '#about' },
+                { label: 'Services', href: '#services' },
+                { label: 'Projects', href: '#projects' },
+                { label: 'Blog', href: '#blog' },
+                { label: 'Contact', href: '#contact' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-xs transition-colors hover:underline"
                     style={{ color: 'var(--muted)' }}
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-                  >
-                    → {link}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}>
+                    → {link.label}
                   </a>
                 </li>
               ))}
@@ -44,15 +45,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--text)' }}>
-              Contact
-            </h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest mb-4" style={{ color: 'var(--text)' }}>Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-xs" style={{ color: 'var(--muted)' }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
-                <a href={`mailto:${siteData.email}`} className="hover:underline" style={{ color: 'var(--muted)' }}
+                <a href={`mailto:${siteData.email}`} className="hover:underline"
+                  style={{ color: 'var(--muted)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}>
                   {siteData.email}
@@ -83,10 +83,18 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6"
           style={{ borderTop: '1px solid var(--border)' }}>
           <p className="text-xs" style={{ color: 'var(--muted)' }}>
-            © {new Date().getFullYear()} Daniel Ngwasi ✦ All rights reserved.
+            © {new Date().getFullYear()} Daniel Ngwasi · All rights reserved.
           </p>
           <p className="text-xs" style={{ color: 'var(--muted)' }}>
-            Built with <span style={{ color: 'var(--cyan)' }}>Next.js</span> · <span style={{ color: 'var(--cyan)' }}>TypeScript</span> · <span style={{ color: 'var(--cyan)' }}>Tailwind CSS</span>
+            Built by{' '}
+            <a href="https://dantechdevelopers.com" target="_blank" rel="noopener noreferrer"
+              className="font-semibold transition-colors"
+              style={{ color: 'var(--cyan)' }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
+              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}>
+              Dantechdevelopers.com
+            </a>
+            {' '}· Next.js · TypeScript · Tailwind
           </p>
         </div>
       </div>

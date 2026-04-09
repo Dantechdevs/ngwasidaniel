@@ -14,8 +14,8 @@ export const siteData = {
   linkedin: "https://linkedin.com/in/danielngwasi",
   twitter: "https://x.com/Ngwasidaniel",
   facebook: "https://www.facebook.com/share/18SUkkGvGh/",
-  tiktok: "https://www.tiktok.com/@danielngwasi",
-  youtube: "https://www.youtube.com/@danielngwasi",
+  tiktok: "https://www.tiktok.com/@dantechdevs",
+  youtube: "https://www.youtube.com/@dantechdevs",
   instagram: "https://www.instagram.com/danielngwasi",
 
   // ─── HERO STATS ────────────────────────────────────────────────────────────
@@ -41,7 +41,7 @@ export const siteData = {
   //  TO ADD MORE IMAGES later:
   //   Just drop the file into  public/images/  and add it here.
   images: {
-    profile: "/images/daniel-profile.png",
+    profile: "/images/daniel.jpg",
     working: "/images/daniel-working.png",
     blogCoding: "/images/blog-coding.png",
     blogPython: "/images/blog-python.png",
@@ -79,6 +79,50 @@ export const siteData = {
     { name: "Microsoft 365", category: "ICT", icon: "Ⓜ" },
     { name: "Server Mgmt", category: "ICT", icon: "🗄" },
     { name: "Data Analysis", category: "ICT", icon: "📊" },
+    { name: "PHP", category: "Backend", icon: "🐘" },
+    { name: "Laravel", category: "Backend", icon: "🔴" },
+    { name: "MySQL", category: "Backend", icon: "🗃" },
+    { name: "Bootstrap", category: "Frontend", icon: "🅱" },
+  ],
+
+  // ─── SERVICES ──────────────────────────────────────────────────────────────
+  services: [
+    {
+      icon: "🌐",
+      title: "Web Development",
+      description: "Full-stack web apps built with React, Next.js, Laravel, and Node.js. From landing pages to complex enterprise systems.",
+      features: ["Responsive Design", "REST APIs", "Database Design", "Authentication"],
+    },
+    {
+      icon: "🖥",
+      title: "ICT Support & Infrastructure",
+      description: "End-to-end ICT support for organizations — network setup, server management, hardware maintenance, and staff training.",
+      features: ["Network Setup", "Server Management", "Hardware Repair", "IT Training"],
+    },
+    {
+      icon: "📱",
+      title: "Mobile App Development",
+      description: "Cross-platform mobile applications using React Native and Flutter that work seamlessly on iOS and Android.",
+      features: ["React Native", "Flutter", "Firebase", "App Store Deployment"],
+    },
+    {
+      icon: "🔒",
+      title: "Cybersecurity",
+      description: "Security audits, vulnerability assessments, and implementation of best practices to protect your digital assets.",
+      features: ["Security Audits", "Penetration Testing", "SSL Setup", "Data Backup"],
+    },
+    {
+      icon: "📊",
+      title: "System Design & Databases",
+      description: "Architecture design, database modeling, and optimization for scalable, high-performance systems.",
+      features: ["System Architecture", "Database Optimization", "API Design", "Cloud Deployment"],
+    },
+    {
+      icon: "🎨",
+      title: "UI/UX & Consulting",
+      description: "User-centered design, wireframing, and technical consulting to help you build better digital products faster.",
+      features: ["Wireframing", "Figma Prototypes", "Tech Consulting", "Code Reviews"],
+    },
   ],
 
   // ─── CAREER ────────────────────────────────────────────────────────────────
@@ -252,10 +296,10 @@ export const siteData = {
   // ─── TESTIMONIALS ──────────────────────────────────────────────────────────
   testimonials: [
     {
-      text: "Daniel delivered exactly what we needed — clean code, great communication, and on time. His technical depth and attention to detail made all the difference.",
-      name: "Sarah Kimani",
-      role: "CEO, TechStart",
-      initials: "SK",
+      text: "Daniel built our entire company website and internal tools from scratch. Clean code, beautiful design, and delivered ahead of schedule. He is our go-to developer.",
+      name: "Felister Wanjiru",
+      role: "CEO, Feltech Creative",
+      initials: "FW",
     },
     {
       text: "Working with Daniel was a seamless experience. He understood our requirements quickly and built a robust, scalable solution that exceeded expectations.",
@@ -286,6 +330,24 @@ export const siteData = {
       name: "Peter Kamau",
       role: "Chairman, Jitihada Group",
       initials: "PK",
+    },
+    {
+      text: "Daniel helped us migrate our entire school ICT infrastructure. Professional, patient, and thorough. Our systems have been running flawlessly ever since.",
+      name: "Mr. Omondi",
+      role: "Principal, Nairobi Technical Institute",
+      initials: "MO",
+    },
+    {
+      text: "Hired Daniel to build our e-commerce store. He delivered a fast, beautiful, and easy-to-manage site. Sales increased within the first month. Highly skilled!",
+      name: "Mercy Njeri",
+      role: "Founder, ShopKenya Online",
+      initials: "MN",
+    },
+    {
+      text: "Daniel is one of the most reliable developers I have worked with. He communicates well, writes clean code, and always goes the extra mile. A true professional.",
+      name: "Brian Mutua",
+      role: "Tech Lead, AfriTech Solutions",
+      initials: "BM",
     },
   ],
 
