@@ -166,6 +166,39 @@ export const siteData = {
       badge: "Open Source · v0.1.0-alpha",
     },
     {
+      title: "DantePOS",
+      description:
+        "A full-featured Point of Sale system built with Laravel 11. Manages sales, purchases, stock, customers, suppliers, employees, and expenses with real-time financial dashboards and lucky draw modules.",
+      tags: ["Laravel 11", "PHP", "MySQL", "Bootstrap", "JavaScript"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs",
+      featured: true,
+      image: "/images/project-dantepos.png",
+      badge: "Laravel 11",
+    },
+    {
+      title: "DanteCredit",
+      description:
+        "A secure web-based loan & credit management system for SACCOs and microfinance institutions. Features loan tracking, branch management, deposits, withdrawals, and analytics dashboards.",
+      tags: ["Laravel 11", "PHP", "MySQL", "Tailwind CSS", "Charts"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs",
+      featured: true,
+      image: "/images/project-dantecredit.png",
+      badge: "Laravel 11",
+    },
+    {
+      title: "Jitihada Voting System",
+      description:
+        "A simple, secure web-based voting management system for community groups. Members register, get a unique REG.NO, and cast one vote. Tracks live results with charts and exports to CSV.",
+      tags: ["PHP", "Tailwind CSS", "Bootstrap", "MySQL", "Chart.js"],
+      demo: "https://dantechdevelopers.com/jitihada_voting/dashboard.php",
+      source: "https://github.com/Dantechdevs/Jitihada-_Group_voting_system",
+      featured: true,
+      image: "/images/project-jitihada.png",
+      badge: "Live · Open Source",
+    },
+    {
       title: "Ministry of Education ICT Portal",
       description:
         "An internal web portal for managing ICT assets, support tickets, and staff ICT requests across the Ministry of Education. Includes real-time dashboards and reporting.",
@@ -179,33 +212,6 @@ export const siteData = {
       description:
         "A complete e-commerce solution with cart, payments, authentication, and an admin dashboard. Built for performance and scalability.",
       tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      demo: "#",
-      source: "https://github.com/Dantechdevs",
-      featured: true,
-    },
-    {
-      title: "Real-Time Chat Application",
-      description:
-        "A WebSocket-powered chat app with rooms, direct messages, and notifications. Supports thousands of concurrent users.",
-      tags: ["Next.js", "TypeScript", "Socket.io", "MongoDB"],
-      demo: "#",
-      source: "https://github.com/Dantechdevs",
-      featured: true,
-    },
-    {
-      title: "Task Management API",
-      description:
-        "A RESTful API for project and task management with team collaboration, role-based access, and detailed analytics.",
-      tags: ["Python", "Django", "PostgreSQL", "Docker"],
-      demo: "#",
-      source: "https://github.com/Dantechdevs",
-      featured: false,
-    },
-    {
-      title: "Mobile Budget Tracker",
-      description:
-        "Cross-platform mobile app for personal finance tracking with charts, categories, and monthly reports.",
-      tags: ["React Native", "Firebase", "Expo"],
       demo: "#",
       source: "https://github.com/Dantechdevs",
       featured: false,
@@ -262,6 +268,24 @@ export const siteData = {
       name: "Aisha Hassan",
       role: "CTO, StartupKE",
       initials: "AH",
+    },
+    {
+      text: "The DantePOS system Daniel built for us transformed our operations. Sales tracking, stock management, and reporting are now completely seamless. Highly recommended!",
+      name: "James Otieno",
+      role: "Business Owner, Matiliku Enterprises",
+      initials: "JO",
+    },
+    {
+      text: "Daniel built the DanteCredit loan management system for our SACCO. It handles all our loan workflows, deposits, and analytics flawlessly. Great work!",
+      name: "Grace Wanjiku",
+      role: "Manager, Dantech Credit",
+      initials: "GW",
+    },
+    {
+      text: "The Jitihada Voting System was exactly what our group needed — secure, simple, and reliable. Daniel understood our requirements and delivered fast. 10/10!",
+      name: "Peter Kamau",
+      role: "Chairman, Jitihada Group",
+      initials: "PK",
     },
   ],
 

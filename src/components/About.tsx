@@ -1,14 +1,36 @@
 "use client"
+import Image from 'next/image'
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
 
 export default function About() {
   return (
     <section id="about" className="py-24 max-w-6xl mx-auto px-4 md:px-6">
-      <div className="max-w-3xl">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-        {/* Content */}
-        <div>
+        {/* LEFT — developer illustration */}
+        <div className="relative mx-auto md:mx-0 w-full max-w-md">
+          <div className="rounded-2xl overflow-hidden relative"
+            style={{ border: '1px solid var(--border)', background: 'var(--bg2)' }}>
+            <Image
+              src="/images/developer-illustration.png"
+              alt="Developer illustration"
+              width={500}
+              height={500}
+              className="object-contain w-full"
+              style={{ display: 'block' }}
+            />
+          </div>
+          {/* Floating stats card */}
+          <div className="absolute -bottom-4 -right-4 rounded-xl px-4 py-3 text-center shadow-xl"
+            style={{ background: 'var(--cyan)', color: 'var(--bg)', minWidth: '110px' }}>
+            <div className="font-mono text-xl font-bold">5+</div>
+            <div className="text-xs font-medium">Years Exp.</div>
+          </div>
+        </div>
+
+        {/* RIGHT — content */}
+        <div className="mt-8 md:mt-0">
           <p className="font-mono text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--cyan)' }}>About Me</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 section-heading" style={{ color: 'var(--text)' }}>
             My Journey
@@ -52,4 +74,3 @@ export default function About() {
     </section>
   )
 }
-

@@ -64,26 +64,28 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — photo */}
-          <div className="shrink-0">
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72">
-              {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-full"
-                style={{ background: 'conic-gradient(var(--cyan), var(--blue), var(--purple), var(--cyan))', padding: '3px' }}>
-                <div className="w-full h-full rounded-full" style={{ background: 'var(--bg)' }} />
-              </div>
-              {/* Photo */}
-              <div className="absolute inset-[4px] rounded-full overflow-hidden">
-                <Image
-                  src={siteData.images.working}
-                  alt="Daniel Ngwasi"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
+          {/* RIGHT — photo, large natural style like reference */}
+          <div className="shrink-0 relative">
+            {/* Glow behind image */}
+            <div className="absolute inset-0 rounded-2xl blur-2xl opacity-30 pointer-events-none"
+              style={{ background: 'radial-gradient(circle, var(--cyan) 0%, var(--blue) 60%, transparent 100%)' }} />
+
+            <div className="relative w-64 sm:w-72 md:w-80 lg:w-96 rounded-2xl overflow-hidden shadow-2xl"
+              style={{ border: '1px solid var(--border)' }}>
+              <Image
+                src={siteData.images.working}
+                alt="Daniel Ngwasi"
+                width={400}
+                height={500}
+                className="object-cover object-top w-full"
+                style={{ display: 'block' }}
+                priority
+              />
+              {/* Subtle gradient at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-24"
+                style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.7), transparent)' }} />
               {/* Floating badge */}
-              <div className="absolute -bottom-2 -right-2 rounded-full px-3 py-1.5 text-xs font-mono font-bold shadow-lg"
+              <div className="absolute bottom-4 left-4 rounded-full px-3 py-1.5 text-xs font-mono font-bold shadow-lg"
                 style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
                 👨‍💻 Open to work
               </div>
