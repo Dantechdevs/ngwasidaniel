@@ -253,15 +253,6 @@ export const siteData = {
       image: "/images/ministry of education ICT portal.png",
       badge: "Live · Private",
     },
-    {
-      title: "Full-Stack E-Commerce Platform",
-      description:
-        "A complete e-commerce solution with cart, payments, authentication, and an admin dashboard. Built for performance and scalability.",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      demo: "#",
-      source: "https://github.com/Dantechdevs",
-      featured: false,
-    },
   ],
 
   // ─── BLOG ──────────────────────────────────────────────────────────────────
