@@ -250,7 +250,7 @@ export const siteData = {
       demo: "#",
       source: "https://github.com/Dantechdevs",
       featured: true,
-      image: "/images/ministry of education ICT portal.png",
+      image: "/images/ict.png",
       badge: "Live · Private",
     },
   ],
