@@ -22,11 +22,10 @@ export default function Skills() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs border transition-all ${
-              active === cat
+            className={`px-4 py-1.5 rounded-full text-xs border transition-all ${active === cat
                 ? 'bg-cyan text-bg border-cyan font-semibold'
                 : 'border-border text-muted hover:border-cyan hover:text-cyan'
-            }`}
+              }`}
           >
             {cat}
           </button>
@@ -40,7 +39,9 @@ export default function Skills() {
             key={skill.name}
             className="bg-bg2 border border-border rounded-lg p-4 text-center card-hover"
           >
-            <div className="text-2xl mb-2">{skill.icon}</div>
+            <div className="mb-2 flex items-center justify-center" style={{ fontSize: '2rem', height: '2.5rem' }}>
+              <i className={skill.icon} />
+            </div>
             <div className="text-xs text-muted">{skill.name}</div>
           </div>
         ))}
