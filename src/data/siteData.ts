@@ -1,8 +1,11 @@
 export const siteData = {
   name: "Daniel Ngwasi",
-  role: "ICT Officer | Software Developer | CS Graduate",
+  roles: [
+    "Full-Stack Software Engineer",
+    "Digital Systems Analyst",
+  ],
   tagline: "Building practical systems that solve real-world problems.",
-  bio: "I'm a skilled computer programmer and ICT professional with a strong background in computer science. I specialize in writing, testing, debugging, and maintaining efficient and scalable software solutions. I am passionate about building practical systems that solve real-world problems, with experience in developing web applications, managing ICT infrastructure, and working with modern technologies.",
+  bio: "I'm a full-stack software engineer and ICT professional with a BSc in Computer Science. I specialize in designing, building, and maintaining efficient, scalable software — from responsive web applications and REST APIs to ICT infrastructure and digital systems. With 5+ years of hands-on experience, I bring a practical, problem-first approach to every project I work on.",
 
   // ─── CONTACT ───────────────────────────────────────────────────────────────
   email: "damnngwasi@gmail.com",
@@ -25,21 +28,7 @@ export const siteData = {
     { number: "10+", label: "Happy Clients" },
   ],
 
-  // ─── WHERE TO PUT YOUR IMAGES ──────────────────────────────────────────────
-  // 1. Put all images inside:  daniel-portfolio/public/images/
-  // 2. They are already copied there for you (see list below)
-  // 3. Reference them anywhere as:  /images/filename.png
-  //
-  //  YOUR IMAGES:
-  //   public/images/daniel-profile.png      ← standing photo (blue shirt)       → used in About section
-  //   public/images/daniel-working.png      ← working at laptop                 → used in Hero / About
-  //   public/images/blog-coding.png         ← laptop + VS Code photo            → used in Blog post 1
-  //   public/images/blog-python.png         ← Python / Django code screenshot   → used in Blog post 2
-  //   public/images/blog-git.png            ← How Git Works diagram             → used in Blog post 3
-  //   public/images/project-reposage.png    ← RepoSage screenshot               → used in Projects
-  //
-  //  TO ADD MORE IMAGES later:
-  //   Just drop the file into  public/images/  and add it here.
+  // ─── IMAGES ────────────────────────────────────────────────────────────────
   images: {
     profile: "/images/daniel.jpg",
     working: "/images/daniel.jpg",
@@ -50,39 +39,51 @@ export const siteData = {
   },
 
   // ─── SKILLS ────────────────────────────────────────────────────────────────
+  // Icons use Devicons v2. Add this to your root layout or index.html:
+  // <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+  // Render each icon with: <i className={skill.icon} />
   skills: [
-    { name: "React", category: "Frontend", icon: "⚛" },
-    { name: "JavaScript", category: "Frontend", icon: "JS" },
-    { name: "TypeScript", category: "Frontend", icon: "TS" },
-    { name: "HTML/CSS", category: "Frontend", icon: "<>" },
-    { name: "Next.js", category: "Frontend", icon: "▲" },
-    { name: "Tailwind CSS", category: "Frontend", icon: "🌊" },
-    { name: "Vue.js", category: "Frontend", icon: "V" },
-    { name: "Node.js", category: "Backend", icon: "⬡" },
-    { name: "Python", category: "Backend", icon: "🐍" },
-    { name: "Django", category: "Backend", icon: "D" },
-    { name: "PostgreSQL", category: "Backend", icon: "🐘" },
-    { name: "MongoDB", category: "Backend", icon: "M" },
-    { name: "REST API", category: "Backend", icon: "⚡" },
-    { name: "GraphQL", category: "Backend", icon: "◈" },
-    { name: "React Native", category: "Mobile", icon: "📱" },
-    { name: "Flutter", category: "Mobile", icon: "🦋" },
-    { name: "Git", category: "Tools", icon: "🔀" },
-    { name: "Docker", category: "Tools", icon: "🐳" },
-    { name: "AWS", category: "Tools", icon: "☁" },
-    { name: "Figma", category: "Tools", icon: "✏" },
-    { name: "Linux", category: "Tools", icon: "🐧" },
-    { name: "CI/CD", category: "Tools", icon: "♾" },
-    { name: "Network Admin", category: "ICT", icon: "🌐" },
-    { name: "ICT Support", category: "ICT", icon: "🖥" },
-    { name: "Cybersecurity", category: "ICT", icon: "🔒" },
-    { name: "Microsoft 365", category: "ICT", icon: "Ⓜ" },
-    { name: "Server Mgmt", category: "ICT", icon: "🗄" },
-    { name: "Data Analysis", category: "ICT", icon: "📊" },
-    { name: "PHP", category: "Backend", icon: "🐘" },
-    { name: "Laravel", category: "Backend", icon: "🔴" },
-    { name: "MySQL", category: "Backend", icon: "🗃" },
-    { name: "Bootstrap", category: "Frontend", icon: "🅱" },
+    // ── Frontend ──────────────────────────────────────────────────────────────
+    { name: "React", category: "Frontend", icon: "devicon-react-original colored" },
+    { name: "JavaScript", category: "Frontend", icon: "devicon-javascript-plain colored" },
+    { name: "TypeScript", category: "Frontend", icon: "devicon-typescript-plain colored" },
+    { name: "HTML/CSS", category: "Frontend", icon: "devicon-html5-plain colored" },
+    { name: "Next.js", category: "Frontend", icon: "devicon-nextjs-plain" },
+    { name: "Tailwind CSS", category: "Frontend", icon: "devicon-tailwindcss-plain colored" },
+    { name: "Vue.js", category: "Frontend", icon: "devicon-vuejs-plain colored" },
+    { name: "Bootstrap", category: "Frontend", icon: "devicon-bootstrap-plain colored" },
+
+    // ── Backend ───────────────────────────────────────────────────────────────
+    { name: "Node.js", category: "Backend", icon: "devicon-nodejs-plain colored" },
+    { name: "Python", category: "Backend", icon: "devicon-python-plain colored" },
+    { name: "Django", category: "Backend", icon: "devicon-django-plain colored" },
+    { name: "PHP", category: "Backend", icon: "devicon-php-plain colored" },
+    { name: "Laravel", category: "Backend", icon: "devicon-laravel-plain colored" },
+    { name: "PostgreSQL", category: "Backend", icon: "devicon-postgresql-plain colored" },
+    { name: "MongoDB", category: "Backend", icon: "devicon-mongodb-plain colored" },
+    { name: "MySQL", category: "Backend", icon: "devicon-mysql-plain colored" },
+    { name: "REST API", category: "Backend", icon: "devicon-fastapi-plain colored" },
+    { name: "GraphQL", category: "Backend", icon: "devicon-graphql-plain colored" },
+
+    // ── Mobile ────────────────────────────────────────────────────────────────
+    { name: "React Native", category: "Mobile", icon: "devicon-react-original colored" },
+    { name: "Flutter", category: "Mobile", icon: "devicon-flutter-plain colored" },
+
+    // ── Tools ─────────────────────────────────────────────────────────────────
+    { name: "Git", category: "Tools", icon: "devicon-git-plain colored" },
+    { name: "Docker", category: "Tools", icon: "devicon-docker-plain colored" },
+    { name: "AWS", category: "Tools", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+    { name: "Figma", category: "Tools", icon: "devicon-figma-plain colored" },
+    { name: "Linux", category: "Tools", icon: "devicon-linux-plain" },
+    { name: "CI/CD", category: "Tools", icon: "devicon-githubactions-plain colored" },
+
+    // ── ICT ───────────────────────────────────────────────────────────────────
+    { name: "Network Admin", category: "ICT", icon: "devicon-cisco-plain colored" },
+    { name: "ICT Support", category: "ICT", icon: "devicon-windows8-plain colored" },
+    { name: "Cybersecurity", category: "ICT", icon: "devicon-ssh-plain colored" },
+    { name: "Microsoft 365", category: "ICT", icon: "devicon-azure-plain colored" },
+    { name: "Server Mgmt", category: "ICT", icon: "devicon-nginx-plain colored" },
+    { name: "Data Analysis", category: "ICT", icon: "devicon-pandas-plain colored" },
   ],
 
   // ─── SERVICES ──────────────────────────────────────────────────────────────
@@ -345,7 +346,6 @@ export const siteData = {
   ],
 
   // ─── CHATBOT AUTO-REPLIES ──────────────────────────────────────────────────
-  // Used by the WhatsApp chatbot widget
   chatbot: {
     enabled: true,
     whatsappNumber: "+254712328150",
