@@ -33,8 +33,21 @@ export default function Hero() {
               <span style={{ color: 'var(--blue)' }}>Ngwasi</span>
             </h1>
 
-            <div className="font-mono text-sm tracking-widest uppercase mb-5" style={{ color: 'var(--muted)' }}>
-              {siteData.role}
+            {/* Role badges */}
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-5">
+              {siteData.roles.map((r) => (
+                <span
+                  key={r}
+                  className="font-mono text-xs tracking-widest uppercase px-4 py-1.5 rounded-full"
+                  style={{
+                    border: '1px solid var(--border)',
+                    color: 'var(--muted)',
+                    background: 'var(--bg3)',
+                  }}
+                >
+                  {r}
+                </span>
+              ))}
             </div>
 
             <p className="max-w-xl mx-auto md:mx-0 leading-relaxed mb-8 text-sm md:text-base" style={{ color: 'var(--muted)' }}>
@@ -64,7 +77,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — photo, large natural style like reference */}
+          {/* RIGHT — photo */}
           <div className="shrink-0 relative">
             {/* Glow behind image */}
             <div className="absolute inset-0 rounded-2xl blur-2xl opacity-30 pointer-events-none"
