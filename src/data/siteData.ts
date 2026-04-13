@@ -84,8 +84,6 @@ export const siteData = {
     { name: "MySQL", category: "Backend", icon: "🗃" },
     { name: "Bootstrap", category: "Frontend", icon: "🅱" },
   ],
-
-
   // ─── SERVICES ──────────────────────────────────────────────────────────────
   services: [
     {
