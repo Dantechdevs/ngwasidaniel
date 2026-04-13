@@ -1,6 +1,6 @@
 export const siteData = {
   name: "Daniel Ngwasi",
-  role: "ICT Officer | Software Developer | CS Graduate",
+  role: "Full-Stack Engineer · Freelance Designer · Open Source Builder",
   tagline: "Building practical systems that solve real-world problems.",
   bio: "I'm a skilled computer programmer and ICT professional with a strong background in computer science. I specialize in writing, testing, debugging, and maintaining efficient and scalable software solutions. I am passionate about building practical systems that solve real-world problems, with experience in developing web applications, managing ICT infrastructure, and working with modern technologies.",
 
@@ -23,6 +23,20 @@ export const siteData = {
     { number: "5+", label: "Years Experience" },
     { number: "100+", label: "Projects Built" },
     { number: "10+", label: "Happy Clients" },
+  ],
+
+  // ─── MARQUEE ───────────────────────────────────────────────────────────────
+  marquee: [
+    "⚡ Full-Stack Development",
+    "🌐 ICT Infrastructure",
+    "📱 Mobile Apps",
+    "🔓 Open Source",
+    "🔒 Cybersecurity",
+    "🎨 UI/UX Design",
+    "☁ Cloud & DevOps",
+    "🗄 Database Design",
+    "⚙ API Development",
+    "🏗 System Architecture",
   ],
 
   // ─── WHERE TO PUT YOUR IMAGES ──────────────────────────────────────────────
@@ -84,6 +98,7 @@ export const siteData = {
     { name: "MySQL", category: "Backend", icon: "🗃" },
     { name: "Bootstrap", category: "Frontend", icon: "🅱" },
   ],
+
   // ─── SERVICES ──────────────────────────────────────────────────────────────
   services: [
     {
@@ -375,7 +390,6 @@ export const siteData = {
   ],
 
   // ─── CHATBOT AUTO-REPLIES ──────────────────────────────────────────────────
-  // Used by the WhatsApp chatbot widget
   chatbot: {
     enabled: true,
     whatsappNumber: "+254712328150",
