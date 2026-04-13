@@ -177,11 +177,11 @@ export const siteData = {
     },
     {
       period: "2011 – 2014",
-      title: "BSc Computer Science",
+      title: "Bachelor of Education",
       company: "Kenyatta University",
       type: "education",
       description:
-        "Graduated with a Bachelor of Science in Computer Science from Kenyatta University. Built a solid academic foundation covering programming, algorithms, data structures, computer networks, and systems design.",
+        "Graduated with a Bachelor of Education from Kenyatta University, gaining a strong foundation in pedagogy, curriculum development, and educational technology.",
     },
   ],
 
@@ -195,11 +195,11 @@ export const siteData = {
         "Strong foundation in algorithms, data structures, software engineering, computer networks, and systems design. Developed practical skills through hands-on projects and coursework.",
     },
     {
-      degree: "Bachelor of Science in Computer Science",
+      degree: "Bachelor of Education",
       institution: "Kenyatta University",
       period: "2011 – 2014",
       description:
-        "Built a solid academic foundation in computer science, covering core areas including programming, algorithms, data structures, computer networks, and systems design.",
+        "Graduated with a Bachelor of Education from Kenyatta University, gaining a strong foundation in pedagogy, curriculum development, and educational technology.",
     },
   ],
 
@@ -408,7 +408,7 @@ export const siteData = {
       {
         triggers: ["education", "university", "degree", "study", "school"],
         reply:
-          "Daniel holds a BSc in Computer Science from both Kenyatta University (2011–2014) and St. Paul's University, Limuru (2019–2022). 🎓",
+          "Daniel holds a Bachelor of Education from Kenyatta University (2011–2014) and a BSc in Computer Science from St. Paul's University, Limuru (2019–2022). 🎓",
       },
       {
         triggers: ["contact", "email", "reach", "touch", "message"],
