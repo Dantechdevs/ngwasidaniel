@@ -4,10 +4,12 @@ import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
 
 export default function Hero() {
+  const marqueeItems = [...siteData.marquee, ...siteData.marquee]
+
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-16 relative overflow-hidden grid-bg"
+      className="min-h-screen flex flex-col justify-center pt-16 relative overflow-hidden grid-bg"
     >
       {/* Radial glows */}
       <div className="absolute top-[-200px] right-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -64,7 +66,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — photo, large natural style like reference */}
+          {/* RIGHT — photo */}
           <div className="shrink-0 relative">
             {/* Glow behind image */}
             <div className="absolute inset-0 rounded-2xl blur-2xl opacity-30 pointer-events-none"
@@ -107,6 +109,45 @@ export default function Hero() {
           ))}
         </div>
       </div>
+
+      {/* ── Marquee ── */}
+      <div className="relative w-full overflow-hidden py-3 mt-auto"
+        style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+
+        {/* Left fade */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10"
+          style={{ background: 'linear-gradient(to right, var(--bg, #0a0a0a), transparent)' }} />
+        {/* Right fade */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10"
+          style={{ background: 'linear-gradient(to left, var(--bg, #0a0a0a), transparent)' }} />
+
+        <div
+          className="flex w-max"
+          style={{
+            animation: 'hero-marquee 35s linear infinite',
+          }}
+          onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.animationPlayState = 'paused')}
+          onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.animationPlayState = 'running')}
+        >
+          {marqueeItems.map((item, i) => (
+            <span
+              key={i}
+              className="mx-6 whitespace-nowrap text-xs font-mono uppercase tracking-widest"
+              style={{ color: 'var(--muted)' }}
+            >
+              {item}
+              <span className="mx-5" style={{ color: 'var(--cyan)', opacity: 0.4 }}>◆</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes hero-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   )
 }
