@@ -39,8 +39,11 @@ export default function Skills() {
             key={skill.name}
             className="bg-bg2 border border-border rounded-lg p-4 text-center card-hover"
           >
-            <div className="mb-2 flex items-center justify-center" style={{ fontSize: '2rem', height: '2.5rem' }}>
-              <i className={skill.icon} />
+            <div
+              className="mb-2 flex items-center justify-center"
+              style={{ fontSize: '1.5rem', height: '2.5rem', fontWeight: 600, lineHeight: 1 }}
+            >
+              {skill.icon}
             </div>
             <div className="text-xs text-muted">{skill.name}</div>
           </div>
