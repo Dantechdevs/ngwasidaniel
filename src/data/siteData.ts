@@ -51,9 +51,9 @@ export const siteData = {
   //   public/images/blog-python.png         ← Python / Django code screenshot   → used in Blog post 2
   //   public/images/blog-git.png            ← How Git Works diagram             → used in Blog post 3
   //   public/images/project-reposage.png    ← RepoSage screenshot               → used in Projects
-  //   public/images/projects/americanbeauty1.png  ← American Beauty home hero   → used in Projects
-  //   public/images/projects/americanbeauty.png   ← American Beauty products    → used in Projects
-  //   public/images/projects/chamapro.png         ← ChamaPro dashboard          → used in Projects
+  //   public/images/americanbeauty1.png  ← American Beauty home hero   → used in Projects
+  //   public/images/americanbeauty.png   ← American Beauty products    → used in Projects
+  //   public/images/chamapro.png         ← ChamaPro dashboard          → used in Projects
   //
   //  TO ADD MORE IMAGES later:
   //   Just drop the file into  public/images/  and add it here.
@@ -311,8 +311,8 @@ export const siteData = {
       source: "https://github.com/Dantechdevs/american-beauty",
       featured: true,
       images: [
-        "/images/projects/americanbeauty1.png", // home hero  (left panel, 60%)
-        "/images/projects/americanbeauty.png",  // products page (right panel, 40%)
+        "/images/americanbeauty1.png", // home hero  (left panel, 60%)
+        "/images/americanbeauty.png",  // products page (right panel, 40%)
       ],
       badge: "Live · Laravel 11",
     },
@@ -324,7 +324,7 @@ export const siteData = {
       demo: "#",
       source: "https://github.com/Dantechdevs/chamapro",
       featured: true,
-      image: "/images/projects/chamapro.png",
+      image: "/images/chamapro.png",
       badge: "In Development",
     },
   ],
