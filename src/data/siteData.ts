@@ -51,6 +51,9 @@ export const siteData = {
   //   public/images/blog-python.png         ← Python / Django code screenshot   → used in Blog post 2
   //   public/images/blog-git.png            ← How Git Works diagram             → used in Blog post 3
   //   public/images/project-reposage.png    ← RepoSage screenshot               → used in Projects
+  //   public/images/projects/americanbeauty1.png  ← American Beauty home hero   → used in Projects
+  //   public/images/projects/americanbeauty.png   ← American Beauty products    → used in Projects
+  //   public/images/projects/chamapro.png         ← ChamaPro dashboard          → used in Projects
   //
   //  TO ADD MORE IMAGES later:
   //   Just drop the file into  public/images/  and add it here.
@@ -297,6 +300,32 @@ export const siteData = {
       featured: true,
       image: "/images/ict.png",
       badge: "Live · Private",
+    },
+    // ─── NEW ────────────────────────────────────────────────────────────────
+    {
+      title: "American Beauty",
+      description:
+        "A full-featured spa & beauty studio management system with a customer-facing e-commerce storefront, M-PESA payments, appointment booking, POS, inventory management, and staff administration — built on Laravel 11.",
+      tags: ["Laravel 11", "Blade", "MySQL", "Tailwind CSS", "M-PESA", "Twilio"],
+      demo: "https://americanbeauty.co.ke",
+      source: "https://github.com/Dantechdevs/american-beauty",
+      featured: true,
+      images: [
+        "/images/projects/americanbeauty1.png", // home hero  (left panel, 60%)
+        "/images/projects/americanbeauty.png",  // products page (right panel, 40%)
+      ],
+      badge: "Live · Laravel 11",
+    },
+    {
+      title: "ChamaPro",
+      description:
+        "A group financial management system for community savings groups and investment clubs. Handles contributions, loans, expenses, M-PESA integration, and meeting management with a clean dashboard.",
+      tags: ["Django", "Python", "PostgreSQL", "Tailwind CSS", "M-PESA"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs/chamapro",
+      featured: true,
+      image: "/images/projects/chamapro.png",
+      badge: "In Development",
     },
   ],
 

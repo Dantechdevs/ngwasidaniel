@@ -19,6 +19,7 @@ type Project = {
   source: string
   featured: boolean
   image?: string
+  images?: string[]   // dual-image support
   badge?: string
 }
 
@@ -35,13 +36,62 @@ export default function Projects() {
         {(siteData.projects as Project[]).map((project, i) => (
           <div
             key={i}
-            className={`bg-bg2 border rounded-xl overflow-hidden card-hover ${
-              project.featured ? 'border-border' : 'border-border opacity-90'
-            }`}
+            className={`bg-bg2 border rounded-xl overflow-hidden card-hover ${project.featured ? 'border-border' : 'border-border opacity-90'
+              }`}
           >
-            {/* Project preview — real screenshot or gradient fallback */}
+            {/* Project preview */}
             <div className="h-48 relative overflow-hidden border-b border-border">
-              {project.image ? (
+
+              {/* ── Dual-image split layout ── */}
+              {project.images && project.images.length === 2 ? (
+                <div className="w-full h-full flex">
+                  {/* Left panel — slightly wider (60%) */}
+                  <div className="relative h-full" style={{ width: '60%' }}>
+                    <Image
+                      src={project.images[0]}
+                      alt={`${project.title} – preview 1`}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+
+                  {/* Divider */}
+                  <div className="w-px bg-border/60 z-10 shrink-0" />
+
+                  {/* Right panel — 40% */}
+                  <div className="relative h-full" style={{ width: '40%' }}>
+                    <Image
+                      src={project.images[1]}
+                      alt={`${project.title} – preview 2`}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+
+                  {/* Unified overlay */}
+                  <div
+                    className="absolute inset-0 z-10 pointer-events-none"
+                    style={{ background: 'linear-gradient(to top, rgba(17,17,24,0.55), transparent)' }}
+                  />
+
+                  {project.badge && (
+                    <div className="absolute top-3 left-3 z-20">
+                      <span className="font-mono text-[10px] bg-bg/80 backdrop-blur border border-cyan/30 text-cyan px-2.5 py-1 rounded-full">
+                        {project.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Small "2 screens" pill bottom-right */}
+                  <div className="absolute bottom-3 right-3 z-20">
+                    <span className="font-mono text-[9px] bg-bg/70 backdrop-blur border border-border text-muted px-2 py-0.5 rounded-full">
+                      2 screens
+                    </span>
+                  </div>
+                </div>
+
+              ) : project.image ? (
+                /* ── Single image ── */
                 <>
                   <Image
                     src={project.image}
@@ -49,9 +99,7 @@ export default function Projects() {
                     fill
                     className="object-cover object-top"
                   />
-                  {/* Subtle overlay so text is readable */}
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(17,17,24,0.6), transparent)' }} />
-                  {/* Badge (e.g. "Open Source · v0.1.0-alpha") */}
                   {project.badge && (
                     <div className="absolute top-3 left-3">
                       <span className="font-mono text-[10px] bg-bg/80 backdrop-blur border border-cyan/30 text-cyan px-2.5 py-1 rounded-full">
@@ -60,7 +108,9 @@ export default function Projects() {
                     </div>
                   )}
                 </>
+
               ) : (
+                /* ── Gradient fallback ── */
                 <div
                   className={`w-full h-full bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center relative`}
                 >
