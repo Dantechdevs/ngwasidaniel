@@ -11,6 +11,7 @@ export const siteData = {
 
   // ─── SOCIAL LINKS ──────────────────────────────────────────────────────────
   github: "https://github.com/Dantechdevs",
+  githubUsername: "Dantechdevs",
   linkedin: "https://linkedin.com/in/danielngwasi",
   twitter: "https://x.com/Ngwasidaniel",
   facebook: "https://www.facebook.com/share/18SUkkGvGh/",
@@ -40,23 +41,6 @@ export const siteData = {
   ],
 
   // ─── WHERE TO PUT YOUR IMAGES ──────────────────────────────────────────────
-  // 1. Put all images inside:  daniel-portfolio/public/images/
-  // 2. They are already copied there for you (see list below)
-  // 3. Reference them anywhere as:  /images/filename.png
-  //
-  //  YOUR IMAGES:
-  //   public/images/daniel-profile.png      ← standing photo (blue shirt)       → used in About section
-  //   public/images/daniel-working.png      ← working at laptop                 → used in Hero / About
-  //   public/images/blog-coding.png         ← laptop + VS Code photo            → used in Blog post 1
-  //   public/images/blog-python.png         ← Python / Django code screenshot   → used in Blog post 2
-  //   public/images/blog-git.png            ← How Git Works diagram             → used in Blog post 3
-  //   public/images/project-reposage.png    ← RepoSage screenshot               → used in Projects
-  //   public/images/americanbeauty1.png  ← American Beauty home hero   → used in Projects
-  //   public/images/americanbeauty.png   ← American Beauty products    → used in Projects
-  //   public/images/chamapro.png         ← ChamaPro dashboard          → used in Projects
-  //
-  //  TO ADD MORE IMAGES later:
-  //   Just drop the file into  public/images/  and add it here.
   images: {
     profile: "/images/daniel.jpg",
     working: "/images/daniel.jpg",
@@ -78,6 +62,7 @@ export const siteData = {
     { name: "Node.js", category: "Backend", icon: "⬡" },
     { name: "Python", category: "Backend", icon: "🐍" },
     { name: "Django", category: "Backend", icon: "D" },
+    { name: "FastAPI", category: "Backend", icon: "🚀" },
     { name: "PostgreSQL", category: "Backend", icon: "🐘" },
     { name: "MongoDB", category: "Backend", icon: "M" },
     { name: "REST API", category: "Backend", icon: "⚡" },
@@ -90,6 +75,7 @@ export const siteData = {
     { name: "Figma", category: "Tools", icon: "✏" },
     { name: "Linux", category: "Tools", icon: "🐧" },
     { name: "CI/CD", category: "Tools", icon: "♾" },
+    { name: "Sentry", category: "Tools", icon: "🛰" },
     { name: "Network Admin", category: "ICT", icon: "🌐" },
     { name: "ICT Support", category: "ICT", icon: "🖥" },
     { name: "Cybersecurity", category: "ICT", icon: "🔒" },
@@ -98,8 +84,11 @@ export const siteData = {
     { name: "Data Analysis", category: "ICT", icon: "📊" },
     { name: "PHP", category: "Backend", icon: "🐘" },
     { name: "Laravel", category: "Backend", icon: "🔴" },
+    { name: "Livewire", category: "Backend", icon: "⚡" },
     { name: "MySQL", category: "Backend", icon: "🗃" },
     { name: "Bootstrap", category: "Frontend", icon: "🅱" },
+    { name: "M-Pesa Daraja", category: "ICT", icon: "💳" },
+    { name: "Africa's Talking SMS", category: "ICT", icon: "✉" },
   ],
 
   // ─── SERVICES ──────────────────────────────────────────────────────────────
@@ -107,7 +96,7 @@ export const siteData = {
     {
       icon: "🌐",
       title: "Web Development",
-      description: "Full-stack web apps built with React, Next.js, Laravel, and Node.js. From landing pages to complex enterprise systems.",
+      description: "Full-stack web apps built with React, Next.js, Laravel, Django and Node.js. From landing pages to complex enterprise systems.",
       features: ["Responsive Design", "REST APIs", "Database Design", "Authentication"],
     },
     {
@@ -135,10 +124,10 @@ export const siteData = {
       features: ["System Architecture", "Database Optimization", "API Design", "Cloud Deployment"],
     },
     {
-      icon: "🎨",
-      title: "UI/UX & Consulting",
-      description: "User-centered design, wireframing, and technical consulting to help you build better digital products faster.",
-      features: ["Wireframing", "Figma Prototypes", "Tech Consulting", "Code Reviews"],
+      icon: "💳",
+      title: "Payments Integration",
+      description: "M-Pesa Daraja (STK Push & B2C), Airtel Money, and PesaLink integrations for platforms that need to move real money reliably.",
+      features: ["M-Pesa STK Push", "B2C Payouts", "Airtel Money", "PesaLink"],
     },
   ],
 
@@ -153,12 +142,12 @@ export const siteData = {
         "Providing ICT support and infrastructure management for the Ministry of Education. Responsible for maintaining computer systems, networks, and digital services. Supporting staff with ICT needs, managing government databases, and implementing digital transformation initiatives across education departments.",
     },
     {
-      period: "2023 – 2024",
-      title: "Freelance Web Developer",
-      company: "Self-Employed",
+      period: "2023 – Present",
+      title: "Freelance Full-Stack Developer",
+      company: "DanTech Developers",
       type: "work",
       description:
-        "Delivered responsive, user-friendly websites and web applications for clients across various industries. Focused on modern frameworks like React and Next.js, delivering exceptional digital experiences and scalable backend systems.",
+        "Building production systems for clients and community organizations across Laravel, Django, Next.js, and FastAPI — including property management, legal services, chama/SACCO finance, and e-commerce platforms with M-Pesa, Airtel Money, and PesaLink integrations.",
     },
     {
       period: "2022 – 2023",
@@ -247,15 +236,73 @@ export const siteData = {
   // ─── PROJECTS ──────────────────────────────────────────────────────────────
   projects: [
     {
+      title: "ChamaBiz",
+      description:
+        "A multi-tenant chama & SACCO management platform built on Django — contributions, loans, fines, and investments, with M-Pesa, Airtel Money, and PesaLink payments, bulk CSV member onboarding, Sentry error monitoring, automated database backups, and a superuser owner dashboard. Security-hardened and rebranded from ChamaPro.",
+      tags: ["Django", "Python", "PostgreSQL", "M-PESA", "Airtel Money", "Celery"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs/chamabiz",
+      featured: true,
+      image: "/images/chamapro.png",
+      badge: "In Development",
+    },
+    {
+      title: "Dante Estate",
+      description:
+        "A property management system for Kenyan landlords — role-based admin panel and tenant portal, M-Pesa STK Push & B2C payouts, Africa's Talking SMS notifications, and scheduled Artisan commands for rent reminders, built on Laravel 12 with Spatie Permission (6 roles, 25 permissions).",
+      tags: ["Laravel 12", "PHP", "MySQL", "M-PESA", "Africa's Talking", "Spatie Permission"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs/dante-estate",
+      featured: true,
+      image: "/images/project-dante-estate.png",
+      badge: "Laravel 12",
+    },
+    {
+      title: "WakiliPro",
+      description:
+        "A legal services marketplace connecting clients with advocates — role-based dashboards, M-Pesa billing with STK Push, admin verification workflows, and a reusable activity-logging system for audit trails, built on Laravel 12.",
+      tags: ["Laravel 12", "PHP", "MySQL", "M-PESA", "Africa's Talking"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs/wakilipro",
+      featured: true,
+      image: "/images/project-wakilipro.png",
+      badge: "Laravel 12",
+    },
+    {
       title: "RepoSage",
       description:
-        "Drop in any GitHub URL and instantly get the purpose, architecture, key files, dependencies, and a contribution guide — all in a clean terminal-style UI. Built for developers, by developers. Zero config.",
-      tags: ["TypeScript", "React", "Node.js", "GitHub API", "Open Source"],
-      demo: "https://dantechdevs.github.io/reposage/",
+        "Drop in any GitHub URL and instantly get the purpose, architecture, key files, dependencies, and a contribution guide — all in a clean terminal-style UI, powered by the Anthropic API. Built for developers, by developers. Zero config.",
+      tags: ["Next.js", "FastAPI", "Python", "GitHub API", "Anthropic API"],
+      demo: "https://reposage-theta.vercel.app",
       source: "https://github.com/Dantechdevs/reposage",
       featured: true,
       image: "/images/project-reposage.png",
-      badge: "Open Source · v0.1.0-alpha",
+      badge: "Live · Open Source",
+    },
+    {
+      title: "American Beauty",
+      description:
+        "A live spa & beauty studio platform combining a customer-facing e-commerce storefront with an internal admin system — walk-in appointments, standalone invoicing, backdated sales, and consolidated revenue reporting across POS, invoices, and appointments, built on Laravel 11.",
+      tags: ["Laravel 11", "Blade", "MySQL", "Tailwind CSS", "M-PESA", "Twilio"],
+      demo: "https://americanbeauty.co.ke",
+      source: "https://github.com/Dantechdevs/american-beauty",
+      featured: true,
+      images: [
+        "/images/americanbeauty1.png",
+        "/images/americanbeauty.png",
+      ],
+      badge: "Live · Laravel 11",
+    },
+    {
+      title: "ElimuMS",
+      description:
+        "An open-source CBC school management system for Kenyan schools — 11 role-based permission tiers, M-Pesa Daraja STK Push, Africa's Talking SMS, Firebase push notifications, and an Anthropic Claude-powered assistant, built on Laravel 12 and Livewire 3.",
+      tags: ["Laravel 12", "Livewire 3", "MySQL", "M-PESA", "Firebase", "Open Source"],
+      demo: "#",
+      source: "https://github.com/Dantechdevs/elimums",
+      featured: true,
+      image: "/images/project-elimums.png",
+      badge: "Open Source",
     },
     {
       title: "DantePOS",
@@ -264,7 +311,7 @@ export const siteData = {
       tags: ["Laravel 11", "PHP", "MySQL", "Bootstrap", "JavaScript"],
       demo: "#",
       source: "https://github.com/Dantechdevs",
-      featured: true,
+      featured: false,
       image: "/images/project-dantepos.png",
       badge: "Laravel 11",
     },
@@ -275,7 +322,7 @@ export const siteData = {
       tags: ["Laravel 11", "PHP", "MySQL", "Tailwind CSS", "Charts"],
       demo: "#",
       source: "https://github.com/Dantechdevs",
-      featured: true,
+      featured: false,
       image: "/images/project-dantecredit.png",
       badge: "Laravel 11",
     },
@@ -286,7 +333,7 @@ export const siteData = {
       tags: ["PHP", "Tailwind CSS", "Bootstrap", "MySQL", "Chart.js"],
       demo: "https://dantechdevelopers.com/jitihada_voting/dashboard.php",
       source: "https://github.com/Dantechdevs/Jitihada-_Group_voting_system",
-      featured: true,
+      featured: false,
       image: "/images/project-jitihada.png",
       badge: "Live · Open Source",
     },
@@ -297,40 +344,41 @@ export const siteData = {
       tags: ["React", "Node.js", "PostgreSQL", "Docker"],
       demo: "#",
       source: "https://github.com/Dantechdevs",
-      featured: true,
+      featured: false,
       image: "/images/ict.png",
       badge: "Live · Private",
-    },
-    // ─── NEW ────────────────────────────────────────────────────────────────
-    {
-      title: "American Beauty",
-      description:
-        "A full-featured spa & beauty studio management system with a customer-facing e-commerce storefront, M-PESA payments, appointment booking, POS, inventory management, and staff administration — built on Laravel 11.",
-      tags: ["Laravel 11", "Blade", "MySQL", "Tailwind CSS", "M-PESA", "Twilio"],
-      demo: "https://americanbeauty.co.ke",
-      source: "https://github.com/Dantechdevs/american-beauty",
-      featured: true,
-      images: [
-        "/images/americanbeauty1.png", // home hero  (left panel, 60%)
-        "/images/americanbeauty.png",  // products page (right panel, 40%)
-      ],
-      badge: "Live · Laravel 11",
-    },
-    {
-      title: "ChamaPro",
-      description:
-        "A group financial management system for community savings groups and investment clubs. Handles contributions, loans, expenses, M-PESA integration, and meeting management with a clean dashboard.",
-      tags: ["Django", "Python", "PostgreSQL", "Tailwind CSS", "M-PESA"],
-      demo: "#",
-      source: "https://github.com/Dantechdevs/chamapro",
-      featured: true,
-      image: "/images/chamapro.png",
-      badge: "In Development",
     },
   ],
 
   // ─── BLOG ──────────────────────────────────────────────────────────────────
   blog: [
+    {
+      title: "Rebranding a Live SaaS Across 45 Files Without Breaking It",
+      category: "Backend",
+      date: "June 2026",
+      excerpt:
+        "Notes from renaming ChamaPro to ChamaBiz across an entire Django codebase — preserving internal app names, avoiding broken migrations, and a content-anchored find-and-replace approach that didn't touch what shouldn't change.",
+      slug: "#",
+      image: "/images/blog-rebrand.png",
+    },
+    {
+      title: "Automating Database Backups on Windows with Task Scheduler",
+      category: "Tools",
+      date: "May 2026",
+      excerpt:
+        "How I built a custom Django management command for automated backups and wired it into Windows Task Scheduler for a production chama management platform — no cron, no extra infrastructure.",
+      slug: "#",
+      image: "/images/blog-backups.png",
+    },
+    {
+      title: "Wiring M-Pesa, Airtel Money, and PesaLink Into One App",
+      category: "Backend",
+      date: "April 2026",
+      excerpt:
+        "Lessons from expanding a Kenyan fintech app beyond M-Pesa — handling three payment providers with different callback formats behind one clean, interactive selector UI.",
+      slug: "#",
+      image: "/images/blog-payments.png",
+    },
     {
       title: "Building Scalable APIs with Node.js and PostgreSQL",
       category: "Backend",
@@ -360,61 +408,43 @@ export const siteData = {
     },
   ],
 
-  // ─── TESTIMONIALS ──────────────────────────────────────────────────────────
-  testimonials: [
+  // ─── FEEDBACK CTA (replaces placeholder testimonials) ──────────────────────
+  feedbackCta: {
+    heading: "Worked With Me?",
+    body: "This section is reserved for real feedback from real clients and collaborators. If we've worked together, I'd love to add your words here.",
+    buttonLabel: "Leave a Testimonial",
+    buttonHref: "mailto:damnngwasi@gmail.com?subject=Testimonial%20for%20Daniel%20Ngwasi",
+  },
+
+  // ─── COMMUNITY & LEADERSHIP ─────────────────────────────────────────────────
+  community: [
     {
-      text: "Daniel built our entire company website and internal tools from scratch. Clean code, beautiful design, and delivered ahead of schedule. He is our go-to developer.",
-      name: "Felister Wanjiru",
-      role: "CEO, Feltech Creative",
-      initials: "FW",
+      title: "Vice Chairperson",
+      organization: "Jitihada Community Development Committee",
+      description:
+        "Helping coordinate community development initiatives and represent member interests in committee decision-making.",
+      icon: "🏛",
     },
     {
-      text: "Working with Daniel was a seamless experience. He understood our requirements quickly and built a robust, scalable solution that exceeded expectations.",
-      name: "David Mwangi",
-      role: "Product Manager, InnovateCo",
-      initials: "DM",
+      title: "Organising Secretary",
+      organization: "Twenty Five Blessed Brothers",
+      description:
+        "Coordinating logistics, communication, and record-keeping for a 25-member welfare and savings group — from contribution tracking to meeting minutes.",
+      icon: "🤝",
     },
     {
-      text: "Daniel's problem-solving approach is outstanding. He doesn't just write code — he thinks through the architecture and delivers clean, maintainable systems.",
-      name: "Aisha Hassan",
-      role: "CTO, StartupKE",
-      initials: "AH",
+      title: "Community Football Support",
+      organization: "Muthetheni FC",
+      description:
+        "Supporting a local football club competing in the FKF Mwala Sub County League 2026/2027 season.",
+      icon: "⚽",
     },
     {
-      text: "The DantePOS system Daniel built for us transformed our operations. Sales tracking, stock management, and reporting are now completely seamless. Highly recommended!",
-      name: "James Otieno",
-      role: "Business Owner, Matiliku Enterprises",
-      initials: "JO",
-    },
-    {
-      text: "Daniel built the DanteCredit loan management system for our SACCO. It handles all our loan workflows, deposits, and analytics flawlessly. Great work!",
-      name: "Grace Wanjiku",
-      role: "Manager, Dantech Credit",
-      initials: "GW",
-    },
-    {
-      text: "The Jitihada Voting System was exactly what our group needed — secure, simple, and reliable. Daniel understood our requirements and delivered fast. 10/10!",
-      name: "Peter Kamau",
-      role: "Chairman, Jitihada Group",
-      initials: "PK",
-    },
-    {
-      text: "Daniel helped us migrate our entire school ICT infrastructure. Professional, patient, and thorough. Our systems have been running flawlessly ever since.",
-      name: "Mr. Omondi",
-      role: "Principal, Nairobi Technical Institute",
-      initials: "MO",
-    },
-    {
-      text: "Hired Daniel to build our e-commerce store. He delivered a fast, beautiful, and easy-to-manage site. Sales increased within the first month. Highly skilled!",
-      name: "Mercy Njeri",
-      role: "Founder, ShopKenya Online",
-      initials: "MN",
-    },
-    {
-      text: "Daniel is one of the most reliable developers I have worked with. He communicates well, writes clean code, and always goes the extra mile. A true professional.",
-      name: "Brian Mutua",
-      role: "Tech Lead, AfriTech Solutions",
-      initials: "BM",
+      title: "Church Community Administration",
+      organization: "Bethel Worship Centre & AIC-affiliated groups",
+      description:
+        "Supporting church administration with communications, contribution tracking, and meeting coordination.",
+      icon: "⛪",
     },
   ],
 

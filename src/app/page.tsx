@@ -6,7 +6,9 @@ import Services from '@/components/Services'
 import Skills from '@/components/Skills'
 import Education from '@/components/Education'
 import Projects from '@/components/Projects'
+import GithubStats from '@/components/GithubStats'
 import Blog from '@/components/Blog'
+import Community from '@/components/Community'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import Newsletter from '@/components/Newsletter'
@@ -25,7 +27,9 @@ export default function Home() {
         <Skills />
         <Education />
         <Projects />
+        <GithubStats />
         <Blog />
+        <Community />
         <Testimonials />
         <Contact />
         <Newsletter />
