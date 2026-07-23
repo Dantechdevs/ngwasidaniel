@@ -128,8 +128,10 @@ export default function Navbar() {
       {/* Persistent divider — subtle at the top of the page, fuller once scrolled */}
       <div className="h-px w-full transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent)',
-          opacity: scrolled ? 0.5 : 0.25,
+          background: 'linear-gradient(90deg, rgba(124,111,250,0.15), var(--cyan) 15%, var(--purple) 85%, rgba(192,132,252,0.15))',
+          height: '2px',
+          opacity: scrolled ? 1 : 0.85,
+          boxShadow: scrolled ? '0 1px 8px rgba(124,111,250,0.35)' : 'none',
         }} />
 
       {/* Mobile menu */}
