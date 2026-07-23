@@ -68,7 +68,6 @@ export default function Navbar() {
       style={{
         background: scrolled ? 'rgba(13,13,20,0.94)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
       }}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
@@ -125,6 +124,13 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Persistent divider — subtle at the top of the page, fuller once scrolled */}
+      <div className="h-px w-full transition-opacity duration-300"
+        style={{
+          background: 'linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent)',
+          opacity: scrolled ? 0.5 : 0.25,
+        }} />
 
       {/* Mobile menu */}
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}
