@@ -74,32 +74,29 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
         {/* Logo */}
         <a href="#hero" onClick={() => handleNav('#hero')}
-          className="flex items-center gap-2 shrink-0"
+          className="flex items-center gap-2.5 shrink-0"
           aria-label="Daniel Ngwasi — home">
-          <span className="w-8 h-8 rounded-md flex items-center justify-center font-mono text-sm font-bold"
-            style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
+          <span className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white"
+            style={{ background: 'linear-gradient(135deg, var(--cyan), var(--purple))' }}>
             DN
           </span>
-          <span className="font-semibold text-sm tracking-tight hidden sm:inline" style={{ color: 'var(--text)' }}>
+          <span className="font-bold text-base tracking-tight hidden sm:inline" style={{ color: 'var(--text)' }}>
             Daniel Ngwasi
           </span>
         </a>
 
-        {/* Desktop links — underline indicator on the active/hovered item */}
+        {/* Desktop links — plain text, underline indicator on active */}
         <ul className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <li key={link.href} className="relative">
               <button type="button" onClick={() => handleNav(link.href)}
                 aria-current={active === link.href ? 'true' : undefined}
-                className="group text-[13px] font-medium px-3.5 py-2 transition-colors duration-200 flex items-center gap-1.5"
+                className="text-sm font-semibold px-4 py-2 transition-colors duration-200"
                 style={{ color: active === link.href ? 'var(--text)' : 'var(--muted)' }}>
-                <span className="font-mono text-[10px]" style={{ color: 'var(--cyan)', opacity: active === link.href ? 1 : 0.45 }}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span>{link.label}</span>
-                <span className="absolute left-3.5 right-3.5 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
+                {link.label}
+                <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
                   style={{
-                    background: 'var(--cyan)',
+                    background: 'linear-gradient(90deg, var(--cyan), var(--purple))',
                     transform: active === link.href ? 'scaleX(1)' : 'scaleX(0)',
                   }} />
               </button>
@@ -109,16 +106,15 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="hidden md:flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
+          <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
             style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
             <span className="pulse-dot inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#4ade80' }} />
             Available for work
           </div>
-          <span className="hidden md:block w-px h-5" style={{ background: 'var(--border)' }} />
           <ThemeToggle />
           <a href="#contact" onClick={() => handleNav('#contact')}
-            className="hidden md:inline-flex items-center text-[13px] font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90"
-            style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
+            className="hidden md:inline-flex items-center text-sm font-bold px-5 py-2.5 rounded-full text-white transition-transform hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, var(--cyan), var(--purple))' }}>
             Hire Me
           </a>
           <button type="button" className="lg:hidden flex flex-col gap-1.5 p-1" onClick={() => setMenuOpen(!menuOpen)}
@@ -134,20 +130,17 @@ export default function Navbar() {
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}
         style={{ background: 'var(--bg2)', borderBottom: menuOpen ? '1px solid var(--border)' : 'none' }}>
         <ul className="flex flex-col px-6 py-4 gap-1">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <button type="button" onClick={() => handleNav(link.href)}
                 aria-current={active === link.href ? 'true' : undefined}
-                className="w-full text-left py-3 text-sm font-medium transition-colors border-b flex items-center gap-2.5"
+                className="w-full text-left py-3 text-sm font-semibold transition-colors border-b"
                 style={{ color: active === link.href ? 'var(--cyan)' : 'var(--text)', borderColor: 'var(--border)' }}>
-                <span className="font-mono text-[10px]" style={{ color: 'var(--cyan)', opacity: 0.6 }}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
                 {link.label}
               </button>
             </li>
           ))}
-          <li className="pt-4 flex items-center justify-between">
+          <li className="pt-4 flex items-center">
             <div className="flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
               style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
               <span className="pulse-dot inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#4ade80' }} />
@@ -156,8 +149,8 @@ export default function Navbar() {
           </li>
           <li className="pt-3">
             <a href="#contact" onClick={() => handleNav('#contact')}
-              className="block w-full text-center text-sm font-semibold py-3 rounded-md"
-              style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
+              className="block w-full text-center text-sm font-bold py-3 rounded-full text-white"
+              style={{ background: 'linear-gradient(135deg, var(--cyan), var(--purple))' }}>
               Hire Me
             </a>
           </li>
