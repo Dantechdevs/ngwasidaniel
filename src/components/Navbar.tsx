@@ -72,31 +72,36 @@ export default function Navbar() {
       }}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
-        {/* Logo — terminal prompt style */}
+        {/* Logo */}
         <a href="#hero" onClick={() => handleNav('#hero')}
-          className="font-mono text-sm shrink-0 flex items-center gap-1.5"
+          className="flex items-center gap-2 shrink-0"
           aria-label="Daniel Ngwasi — home">
-          <span style={{ color: 'var(--muted)' }}>~/</span>
-          <span style={{ color: 'var(--text)' }}>daniel</span>
-          <span style={{ color: 'var(--cyan)' }}>.ngwasi</span>
-          <span className="blink" style={{ color: 'var(--cyan)' }}>_</span>
+          <span className="w-8 h-8 rounded-md flex items-center justify-center font-mono text-sm font-bold"
+            style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
+            DN
+          </span>
+          <span className="font-semibold text-sm tracking-tight hidden sm:inline" style={{ color: 'var(--text)' }}>
+            Daniel Ngwasi
+          </span>
         </a>
 
-        {/* Desktop links — numbered like a real table of contents */}
+        {/* Desktop links — underline indicator on the active/hovered item */}
         <ul className="hidden lg:flex items-center gap-1 flex-1 justify-center">
           {navLinks.map((link, i) => (
-            <li key={link.href}>
+            <li key={link.href} className="relative">
               <button type="button" onClick={() => handleNav(link.href)}
                 aria-current={active === link.href ? 'true' : undefined}
-                className="font-mono text-xs px-3 py-2 rounded-md transition-colors duration-200 flex items-center gap-1.5"
-                style={{
-                  color: active === link.href ? 'var(--text)' : 'var(--muted)',
-                  background: active === link.href ? 'var(--bg3)' : 'transparent',
-                }}>
-                <span style={{ color: 'var(--cyan)', opacity: 0.7 }}>
+                className="group text-[13px] font-medium px-3.5 py-2 transition-colors duration-200 flex items-center gap-1.5"
+                style={{ color: active === link.href ? 'var(--text)' : 'var(--muted)' }}>
+                <span className="font-mono text-[10px]" style={{ color: 'var(--cyan)', opacity: active === link.href ? 1 : 0.45 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span className="uppercase tracking-widest">{link.label}</span>
+                <span>{link.label}</span>
+                <span className="absolute left-3.5 right-3.5 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
+                  style={{
+                    background: 'var(--cyan)',
+                    transform: active === link.href ? 'scaleX(1)' : 'scaleX(0)',
+                  }} />
               </button>
             </li>
           ))}
@@ -104,16 +109,17 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="hidden md:flex items-center gap-1.5 font-mono text-[11px] px-2.5 py-1 rounded-full"
+          <div className="hidden md:flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
             style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
             <span className="pulse-dot inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#4ade80' }} />
-            open-to-work
+            Available for work
           </div>
+          <span className="hidden md:block w-px h-5" style={{ background: 'var(--border)' }} />
           <ThemeToggle />
           <a href="#contact" onClick={() => handleNav('#contact')}
-            className="hidden md:inline-flex items-center gap-1.5 font-mono text-xs font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-85"
+            className="hidden md:inline-flex items-center text-[13px] font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90"
             style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
-            hire_me()
+            Hire Me
           </a>
           <button type="button" className="lg:hidden flex flex-col gap-1.5 p-1" onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu" style={{ color: 'var(--muted)' }}>
@@ -132,18 +138,27 @@ export default function Navbar() {
             <li key={link.href}>
               <button type="button" onClick={() => handleNav(link.href)}
                 aria-current={active === link.href ? 'true' : undefined}
-                className="w-full text-left py-3 font-mono text-sm uppercase tracking-widest transition-colors border-b flex items-center gap-2"
-                style={{ color: active === link.href ? 'var(--cyan)' : 'var(--muted)', borderColor: 'var(--border)' }}>
-                <span style={{ opacity: 0.6 }}>{String(i + 1).padStart(2, '0')}</span>
+                className="w-full text-left py-3 text-sm font-medium transition-colors border-b flex items-center gap-2.5"
+                style={{ color: active === link.href ? 'var(--cyan)' : 'var(--text)', borderColor: 'var(--border)' }}>
+                <span className="font-mono text-[10px]" style={{ color: 'var(--cyan)', opacity: 0.6 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 {link.label}
               </button>
             </li>
           ))}
+          <li className="pt-4 flex items-center justify-between">
+            <div className="flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
+              style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
+              <span className="pulse-dot inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#4ade80' }} />
+              Available for work
+            </div>
+          </li>
           <li className="pt-3">
             <a href="#contact" onClick={() => handleNav('#contact')}
-              className="block w-full text-center font-mono text-sm font-semibold py-3 rounded-md"
+              className="block w-full text-center text-sm font-semibold py-3 rounded-md"
               style={{ background: 'var(--cyan)', color: 'var(--bg)' }}>
-              hire_me()
+              Hire Me
             </a>
           </li>
         </ul>
