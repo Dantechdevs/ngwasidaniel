@@ -1,5 +1,38 @@
 'use client'
+import { useState } from 'react'
 import { siteData } from '@/data/siteData'
+
+// github-readme-stats.vercel.app is a free, community-run, rate-limited service —
+// it does occasionally go down. Track failures per-image so a dead widget doesn't
+// leave a broken-image icon sitting in the layout.
+function StatImage({ src, alt, width, height, minWidth, className = '' }: {
+  src: string; alt: string; width: number; height: number; minWidth?: number; className?: string
+}) {
+  const [failed, setFailed] = useState(false)
+
+  if (failed) {
+    return (
+      <div className="w-full flex items-center justify-center rounded-xl text-xs font-mono p-6"
+        style={{ aspectRatio: `${width}/${height}`, background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
+        Stats service unavailable right now — refresh to retry.
+      </div>
+    )
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={`w-full rounded-xl ${className}`}
+      style={{ border: '1px solid var(--border)', ...(minWidth ? { minWidth } : {}) }}
+    />
+  )
+}
 
 export default function GithubStats() {
   const user = siteData.githubUsername
@@ -17,28 +50,24 @@ export default function GithubStats() {
       </p>
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=dark&bg_color=0d1117&title_color=00d4b8&icon_color=00d4b8&text_color=c9d1d9&border_color=30363d&hide_border=false`}
+        <StatImage
+          src={`https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=dark&bg_color=0d0d14&title_color=7c6ffa&icon_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
           alt="Daniel's GitHub stats"
-          className="w-full rounded-xl"
-          style={{ border: '1px solid var(--border)' }}
+          width={495} height={195}
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=dark&bg_color=0d1117&title_color=00d4b8&text_color=c9d1d9&border_color=30363d&hide_border=false`}
+        <StatImage
+          src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=dark&bg_color=0d0d14&title_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
           alt="Daniel's most used languages"
-          className="w-full rounded-xl"
-          style={{ border: '1px solid var(--border)' }}
+          width={300} height={195}
         />
       </div>
 
       <div className="rounded-xl p-4 overflow-x-auto" style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`https://ghchart.rshah.org/00d4b8/${user}`}
+        <StatImage
+          src={`https://ghchart.rshah.org/7c6ffa/${user}`}
           alt="Daniel's GitHub contribution graph"
-          className="w-full min-w-[600px]"
+          width={720} height={112}
+          minWidth={600}
         />
       </div>
 
