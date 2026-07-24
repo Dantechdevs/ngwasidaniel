@@ -17,6 +17,7 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ngwasidaniel.vercel.app'),
   title: 'Daniel Ngwasi | Full-Stack Software Engineer',
   description:
     'Full-Stack Software Engineer and Digital Systems Analyst specializing in scalable web applications, Laravel systems, and ICT infrastructure. Based in Nairobi, Kenya. Built by Dantechdevelopers.com',
@@ -27,7 +28,15 @@ export const metadata: Metadata = {
     title: 'Daniel Ngwasi | Full-Stack Software Engineer',
     description: 'Building practical systems that solve real-world problems. Nairobi, Kenya.',
     type: 'website',
-    url: 'https://dantechdevelopers.com',
+    url: 'https://ngwasidaniel.vercel.app',
+    siteName: 'Daniel Ngwasi',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Daniel Ngwasi — Full-Stack Software Engineer' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daniel Ngwasi | Full-Stack Software Engineer',
+    description: 'Building practical systems that solve real-world problems. Nairobi, Kenya.',
+    images: ['/opengraph-image'],
   },
 }
 

@@ -3,14 +3,14 @@ import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Career', href: '#career' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Activity', href: '#github-activity' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'About',     href: '#about' },
+  { label: 'Career',    href: '#career' },
+  { label: 'Skills',    href: '#skills' },
+  { label: 'Projects',  href: '#projects' },
+  { label: 'Activity',  href: '#github-activity' },
+  { label: 'Blog',      href: '#blog' },
   { label: 'Community', href: '#community' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact',   href: '#contact' },
 ]
 
 const NAV_HEIGHT = 64 // px — must match h-16 below; used to offset scroll targets
@@ -18,8 +18,23 @@ const NAV_HEIGHT = 64 // px — must match h-16 below; used to offset scroll tar
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [active, setActive] = useState(navLinks[0].href)
+  const [active,   setActive]   = useState(navLinks[0].href)
   const clickLock = useRef(false) // suppress the observer briefly during a manual nav click
+
+  // Respect a direct link like yoursite.com/#projects on first load, instead of
+  // always defaulting to the first nav item until the user scrolls.
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash && navLinks.some(l => l.href === hash)) {
+      setActive(hash)
+      clickLock.current = true
+      window.setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ block: 'start' })
+        window.scrollBy({ top: -NAV_HEIGHT })
+        clickLock.current = false
+      }, 50)
+    }
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
