@@ -3,21 +3,6 @@ import { useState, useRef } from 'react'
 import { siteData } from '@/data/siteData'
 import SocialIcons from './SocialIcons'
 
-// ─────────────────────────────────────────────
-// HOW TO SET UP EMAILJS (free — 200 emails/mo)
-// 1. Go to https://www.emailjs.com and create a free account
-// 2. Add an Email Service (Gmail works great)
-// 3. Create an Email Template with these variables:
-//      {{from_name}}, {{from_email}}, {{subject}}, {{message}}
-// 4. Copy your Service ID, Template ID, and Public Key
-// 5. Replace the three constants below
-// Until these are filled in, the form will show an error state on submit
-// rather than silently pretending to succeed.
-// ─────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = 'service_hml43v3'
-const EMAILJS_TEMPLATE_ID = 'template_id86da3'
-const EMAILJS_PUBLIC_KEY = 'v7MwbFV8sHGmD_PCq'
-
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -25,29 +10,19 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
-      // Not configured yet — fail loudly instead of faking success
-      console.error('EmailJS is not configured — see setup comment at the top of Contact.tsx')
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 6000)
-      return
-    }
-
     setStatus('sending')
     try {
-      const emailjs = (await import('@emailjs/browser')).default
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current!,
-        EMAILJS_PUBLIC_KEY
-      )
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Request failed')
       setStatus('sent')
       setForm({ name: '', email: '', subject: '', message: '' })
       setTimeout(() => setStatus('idle'), 5000)
     } catch (err) {
-      console.error('EmailJS error:', err)
+      console.error('Contact form error:', err)
       setStatus('error')
       setTimeout(() => setStatus('idle'), 6000)
     }
