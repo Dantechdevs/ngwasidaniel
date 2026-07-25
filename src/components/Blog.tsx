@@ -1,17 +1,21 @@
 "use client"
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { siteData } from '@/data/siteData'
 
 const categoryColors: Record<string, string> = {
-  Backend:     '#4488ff',
-  Frontend:    '#00d4b8',
+  Backend: '#4488ff',
+  Frontend: '#00d4b8',
   Development: '#9966ff',
-  Tools:       '#f59e0b',
-  ICT:         '#10b981',
+  Tools: '#f59e0b',
+  ICT: '#10b981',
 }
 
 export default function Blog() {
+  const [failed, setFailed] = useState<Set<number>>(new Set())
+  const markFailed = (i: number) => setFailed(prev => new Set(prev).add(i))
+
   return (
     <section id="blog" className="py-24" style={{ background: 'var(--bg2)' }}>
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -30,41 +34,56 @@ export default function Blog() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {siteData.blog.map((post, i) => (
-            <Link key={i} href={post.slug === '#' ? '/blog' : `/blog/${post.slug}`}
-              className="rounded-xl overflow-hidden block group card-hover"
-              style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
+          {siteData.blog.map((post, i) => {
+            const color = categoryColors[post.category] || '#888'
+            const showFallback = failed.has(i)
+            return (
+              <Link key={i} href={post.slug === '#' ? '/blog' : `/blog/${post.slug}`}
+                className="rounded-xl overflow-hidden block group card-hover"
+                style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
 
-              {/* Real image */}
-              <div className="h-44 relative overflow-hidden">
-                <Image src={post.image} alt={post.title} fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8), transparent)' }} />
-                <div className="absolute bottom-3 left-3">
-                  <span className="text-xs px-2.5 py-1 rounded-full border font-mono"
-                    style={{
-                      background: `${categoryColors[post.category] || '#888'}22`,
-                      borderColor: `${categoryColors[post.category] || '#888'}44`,
-                      color: categoryColors[post.category] || 'var(--muted)',
-                    }}>
-                    {post.category}
-                  </span>
+                <div className="h-44 relative overflow-hidden">
+                  {showFallback ? (
+                    <div className="w-full h-full flex items-center justify-center relative"
+                      style={{ background: `linear-gradient(135deg, var(--bg3), ${color}15)` }}>
+                      <div className="absolute inset-0 opacity-10" style={{
+                        backgroundImage: 'linear-gradient(rgba(255,255,255,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.08) 1px,transparent 1px)',
+                        backgroundSize: '18px 18px',
+                      }} />
+                      <span className="font-mono text-2xl font-bold z-10" style={{ color }}>
+                        {post.category.slice(0, 2).toUpperCase()}
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <Image src={post.image} alt={post.title} fill
+                        onError={() => markFailed(i)}
+                        className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <div className="absolute inset-0"
+                        style={{ background: 'linear-gradient(to top, rgba(10,10,15,0.8), transparent)' }} />
+                    </>
+                  )}
+                  <div className="absolute bottom-3 left-3">
+                    <span className="text-xs px-2.5 py-1 rounded-full border font-mono"
+                      style={{ background: `${color}22`, borderColor: `${color}44`, color }}>
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-5">
-                <div className="font-mono text-xs mb-3" style={{ color: 'var(--muted)' }}>{post.date}</div>
-                <h3 className="font-semibold text-sm leading-snug mb-3 transition-colors"
-                  style={{ color: 'var(--text)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text)')}>
-                  {post.title}
-                </h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>{post.excerpt}</p>
-              </div>
-            </Link>
-          ))}
+                <div className="p-5">
+                  <div className="font-mono text-xs mb-3" style={{ color: 'var(--muted)' }}>{post.date}</div>
+                  <h3 className="font-semibold text-sm leading-snug mb-3 transition-colors"
+                    style={{ color: 'var(--text)' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--cyan)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--text)')}>
+                    {post.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--muted)' }}>{post.excerpt}</p>
+                </div>
+              </Link>
+            )
+          })}
         </div>
 
         {/* Add blog CTA */}

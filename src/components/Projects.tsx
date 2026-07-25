@@ -38,6 +38,8 @@ export default function Projects() {
   const allProjects = siteData.projects as Project[]
   const featured = allProjects.filter(p => p.featured)
   const more = allProjects.filter(p => !p.featured)
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+  const markFailed = (key: string) => setFailedImages(prev => new Set(prev).add(key))
 
   // Build filter chips from the tags that actually appear on featured projects
   const allTags = useMemo(() => {
@@ -87,14 +89,16 @@ export default function Projects() {
           <div key={project.title} className="rounded-xl overflow-hidden card-hover"
             style={{ background: 'var(--bg2)', border: '1px solid var(--border)' }}>
             <div className="h-48 relative overflow-hidden" style={{ borderBottom: '1px solid var(--border)' }}>
-              {project.images && project.images.length === 2 ? (
+              {project.images && project.images.length === 2 && !failedImages.has(project.title) ? (
                 <div className="w-full h-full flex">
                   <div className="relative h-full" style={{ width: '60%' }}>
-                    <Image src={project.images[0]} alt={`${project.title} – preview 1`} fill className="object-cover object-top" />
+                    <Image src={project.images[0]} alt={`${project.title} – preview 1`} fill
+                      onError={() => markFailed(project.title)} className="object-cover object-top" />
                   </div>
                   <div className="w-px shrink-0 z-10" style={{ background: 'var(--border)' }} />
                   <div className="relative h-full" style={{ width: '40%' }}>
-                    <Image src={project.images[1]} alt={`${project.title} – preview 2`} fill className="object-cover object-top" />
+                    <Image src={project.images[1]} alt={`${project.title} – preview 2`} fill
+                      onError={() => markFailed(project.title)} className="object-cover object-top" />
                   </div>
                   <div className="absolute inset-0 z-10 pointer-events-none"
                     style={{ background: 'linear-gradient(to top, rgba(13,13,20,0.6), transparent)' }} />
@@ -105,9 +109,10 @@ export default function Projects() {
                     </span>
                   )}
                 </div>
-              ) : project.image ? (
+              ) : project.image && !failedImages.has(project.title) ? (
                 <>
-                  <Image src={project.image} alt={project.title} fill className="object-cover object-top" />
+                  <Image src={project.image} alt={project.title} fill
+                    onError={() => markFailed(project.title)} className="object-cover object-top" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(13,13,20,0.65), transparent)' }} />
                   {project.badge && (
                     <span className="absolute top-3 left-3 font-mono text-[10px] px-2.5 py-1 rounded-full backdrop-blur"
