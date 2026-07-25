@@ -14,9 +14,9 @@ import SocialIcons from './SocialIcons'
 // Until these are filled in, the form will show an error state on submit
 // rather than silently pretending to succeed.
 // ─────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+const EMAILJS_SERVICE_ID = 'service_hml43v3'
+const EMAILJS_TEMPLATE_ID = 'template_id86da3'
+const EMAILJS_PUBLIC_KEY = 'v7MwbFV8sHGmD_PCq'
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
