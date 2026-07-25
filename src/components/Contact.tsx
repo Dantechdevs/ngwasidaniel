@@ -119,7 +119,7 @@ export default function Contact() {
 
             <div>
               <p className="text-xs mb-3" style={{ color: 'var(--muted)' }}>Find me on</p>
-              <SocialIcons size="sm" />
+              <SocialIcons size="sm" limit={3} />
             </div>
           </div>
 
