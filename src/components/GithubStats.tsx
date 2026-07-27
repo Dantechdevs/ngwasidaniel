@@ -2,9 +2,14 @@
 import { useState } from 'react'
 import { siteData } from '@/data/siteData'
 
-// github-readme-stats.vercel.app is a free, community-run, rate-limited service —
-// it does occasionally go down. Track failures per-image so a dead widget doesn't
-// leave a broken-image icon sitting in the layout.
+// The original public instance (github-readme-stats.vercel.app) is a shared,
+// free-tier service that regularly hits GitHub API rate limits and returns
+// 503s under load. The maintainers announced in mid-2026 that active work has
+// moved to this actively-maintained fork, which is a drop-in replacement with
+// identical params — just a different domain. Track failures per-image so a
+// dead widget doesn't leave a broken-image icon sitting in the layout.
+const STATS_HOST = 'https://github-stats-extended.vercel.app'
+
 function StatImage({ src, alt, width, height, minWidth, className = '' }: {
   src: string; alt: string; width: number; height: number; minWidth?: number; className?: string
 }) {
@@ -51,12 +56,12 @@ export default function GithubStats() {
 
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <StatImage
-          src={`https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=dark&bg_color=0d0d14&title_color=7c6ffa&icon_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
+          src={`${STATS_HOST}/api?username=${user}&show_icons=true&theme=dark&bg_color=0d0d14&title_color=7c6ffa&icon_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
           alt="Daniel's GitHub stats"
           width={495} height={195}
         />
         <StatImage
-          src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=dark&bg_color=0d0d14&title_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
+          src={`${STATS_HOST}/api/top-langs/?username=${user}&layout=compact&theme=dark&bg_color=0d0d14&title_color=7c6ffa&text_color=eaeaf5&border_color=2e2e4a&hide_border=false`}
           alt="Daniel's most used languages"
           width={300} height={195}
         />
