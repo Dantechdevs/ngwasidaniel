@@ -1,31 +1,53 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
+import { ChevronDown } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
-const navLinks = [
-  { label: 'About',     href: '#about' },
-  { label: 'Career',    href: '#career' },
-  { label: 'Skills',    href: '#skills' },
-  { label: 'Projects',  href: '#projects' },
-  { label: 'Activity',  href: '#github-activity' },
-  { label: 'Blog',      href: '#blog' },
-  { label: 'Community', href: '#community' },
-  { label: 'Contact',   href: '#contact' },
+type Link = { label: string; href: string }
+type NavItem = Link | { label: string; children: Link[] }
+
+const navGroups: NavItem[] = [
+  { label: 'About', href: '#about' },
+  {
+    label: 'Profile',
+    children: [
+      { label: 'Career', href: '#career' },
+      { label: 'Skills', href: '#skills' },
+    ],
+  },
+  { label: 'Projects', href: '#projects' },
+  {
+    label: 'More',
+    children: [
+      { label: 'Activity', href: '#github-activity' },
+      { label: 'Blog', href: '#blog' },
+      { label: 'Community', href: '#community' },
+    ],
+  },
+  { label: 'Contact', href: '#contact' },
 ]
+
+// Flattened list of every real section link — used for scroll-spy, hash-on-load,
+// and the mobile menu. Rendering uses navGroups directly; this is bookkeeping only.
+const flatLinks: Link[] = navGroups.flatMap((item) =>
+  'children' in item ? item.children : [item]
+)
 
 const NAV_HEIGHT = 64 // px — must match h-16 below; used to offset scroll targets
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [active,   setActive]   = useState(navLinks[0].href)
+  const [active, setActive] = useState(flatLinks[0].href)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const clickLock = useRef(false) // suppress the observer briefly during a manual nav click
+  const dropdownRefs = useRef<Record<string, HTMLLIElement | null>>({})
 
   // Respect a direct link like yoursite.com/#projects on first load, instead of
   // always defaulting to the first nav item until the user scrolls.
   useEffect(() => {
     const hash = window.location.hash
-    if (hash && navLinks.some(l => l.href === hash)) {
+    if (hash && flatLinks.some(l => l.href === hash)) {
       setActive(hash)
       clickLock.current = true
       window.setTimeout(() => {
@@ -42,9 +64,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close an open dropdown when clicking anywhere outside it
+  useEffect(() => {
+    if (!openDropdown) return
+    const onClickOutside = (e: MouseEvent) => {
+      const container = dropdownRefs.current[openDropdown]
+      if (container && !container.contains(e.target as Node)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [openDropdown])
+
   // Scroll-spy: highlight whichever section is actually in view, not just the last clicked link
   useEffect(() => {
-    const sections = navLinks
+    const sections = flatLinks
       .map(l => document.querySelector(l.href))
       .filter((el): el is Element => el !== null)
 
@@ -66,6 +101,7 @@ export default function Navbar() {
   const handleNav = (href: string) => {
     setActive(href)
     setMenuOpen(false)
+    setOpenDropdown(null)
     clickLock.current = true
 
     const target = document.querySelector(href) as HTMLElement | null
@@ -99,23 +135,73 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop links — plain text, underline indicator on active */}
+        {/* Desktop links — plain items + grouped dropdowns, underline indicator on active */}
         <ul className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-          {navLinks.map((link) => (
-            <li key={link.href} className="relative">
-              <button type="button" onClick={() => handleNav(link.href)}
-                aria-current={active === link.href ? 'true' : undefined}
-                className="text-sm font-semibold px-4 py-2 transition-colors duration-200"
-                style={{ color: active === link.href ? 'var(--text)' : 'var(--muted)' }}>
-                {link.label}
-                <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
+          {navGroups.map((item) => {
+            if (!('children' in item)) {
+              return (
+                <li key={item.href} className="relative">
+                  <button type="button" onClick={() => handleNav(item.href)}
+                    aria-current={active === item.href ? 'true' : undefined}
+                    className="text-sm font-semibold px-4 py-2 transition-colors duration-200"
+                    style={{ color: active === item.href ? 'var(--text)' : 'var(--muted)' }}>
+                    {item.label}
+                    <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
+                      style={{
+                        background: 'linear-gradient(90deg, var(--cyan), var(--purple))',
+                        transform: active === item.href ? 'scaleX(1)' : 'scaleX(0)',
+                      }} />
+                  </button>
+                </li>
+              )
+            }
+
+            const isGroupActive = item.children.some(c => c.href === active)
+            const isOpen = openDropdown === item.label
+
+            return (
+              <li key={item.label} className="relative"
+                ref={(el) => { dropdownRefs.current[item.label] = el }}>
+                <button type="button"
+                  onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                  aria-expanded={isOpen}
+                  className="flex items-center gap-1 text-sm font-semibold px-4 py-2 transition-colors duration-200"
+                  style={{ color: isGroupActive || isOpen ? 'var(--text)' : 'var(--muted)' }}>
+                  {item.label}
+                  <ChevronDown size={14} className="transition-transform duration-200"
+                    style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                  <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full transition-transform duration-200 origin-left"
+                    style={{
+                      background: 'linear-gradient(90deg, var(--cyan), var(--purple))',
+                      transform: isGroupActive ? 'scaleX(1)' : 'scaleX(0)',
+                    }} />
+                </button>
+
+                {/* Dropdown panel */}
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200"
                   style={{
-                    background: 'linear-gradient(90deg, var(--cyan), var(--purple))',
-                    transform: active === link.href ? 'scaleX(1)' : 'scaleX(0)',
-                  }} />
-              </button>
-            </li>
-          ))}
+                    opacity: isOpen ? 1 : 0,
+                    visibility: isOpen ? 'visible' : 'hidden',
+                    transform: isOpen ? 'translate(-50%, 0)' : 'translate(-50%, -4px)',
+                  }}>
+                  <ul className="min-w-[160px] rounded-xl overflow-hidden py-1"
+                    style={{ background: 'var(--bg2)', border: '1px solid var(--border)', boxShadow: '0 12px 32px rgba(0,0,0,0.35)' }}>
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <button type="button" onClick={() => handleNav(child.href)}
+                          aria-current={active === child.href ? 'true' : undefined}
+                          className="w-full text-left text-sm font-medium px-4 py-2.5 transition-colors"
+                          style={{ color: active === child.href ? 'var(--cyan)' : 'var(--text)' }}>
+                          {child.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Right */}
@@ -149,20 +235,43 @@ export default function Navbar() {
           boxShadow: scrolled ? '0 1px 8px rgba(124,111,250,0.35)' : 'none',
         }} />
 
-      {/* Mobile menu */}
+      {/* Mobile menu — groups get a small uppercase label, children indented beneath */}
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}
         style={{ background: 'var(--bg2)', borderBottom: menuOpen ? '1px solid var(--border)' : 'none' }}>
         <ul className="flex flex-col px-6 py-4 gap-1">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <button type="button" onClick={() => handleNav(link.href)}
-                aria-current={active === link.href ? 'true' : undefined}
-                className="w-full text-left py-3 text-sm font-semibold transition-colors border-b"
-                style={{ color: active === link.href ? 'var(--cyan)' : 'var(--text)', borderColor: 'var(--border)' }}>
-                {link.label}
-              </button>
-            </li>
-          ))}
+          {navGroups.map((item) => {
+            if (!('children' in item)) {
+              return (
+                <li key={item.href}>
+                  <button type="button" onClick={() => handleNav(item.href)}
+                    aria-current={active === item.href ? 'true' : undefined}
+                    className="w-full text-left py-3 text-sm font-semibold transition-colors border-b"
+                    style={{ color: active === item.href ? 'var(--cyan)' : 'var(--text)', borderColor: 'var(--border)' }}>
+                    {item.label}
+                  </button>
+                </li>
+              )
+            }
+            return (
+              <li key={item.label} className="border-b" style={{ borderColor: 'var(--border)' }}>
+                <div className="pt-3 pb-1 text-[11px] font-bold uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
+                  {item.label}
+                </div>
+                <ul className="flex flex-col pb-2">
+                  {item.children.map((child) => (
+                    <li key={child.href}>
+                      <button type="button" onClick={() => handleNav(child.href)}
+                        aria-current={active === child.href ? 'true' : undefined}
+                        className="w-full text-left py-2.5 pl-3 text-sm font-medium transition-colors"
+                        style={{ color: active === child.href ? 'var(--cyan)' : 'var(--text)' }}>
+                        {child.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )
+          })}
           <li className="pt-4 flex items-center">
             <div className="flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full"
               style={{ background: 'var(--bg3)', border: '1px solid var(--border)', color: 'var(--muted)' }}>
