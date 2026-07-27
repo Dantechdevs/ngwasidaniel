@@ -9,7 +9,7 @@ type NavItem = Link | { label: string; children: Link[] }
 const navGroups: NavItem[] = [
   { label: 'About', href: '#about' },
   {
-    label: 'Profile',
+    label: 'Qualifications',
     children: [
       { label: 'Career', href: '#career' },
       { label: 'Skills', href: '#skills' },
@@ -17,7 +17,7 @@ const navGroups: NavItem[] = [
   },
   { label: 'Projects', href: '#projects' },
   {
-    label: 'More',
+    label: 'Explore',
     children: [
       { label: 'Activity', href: '#github-activity' },
       { label: 'Blog', href: '#blog' },
